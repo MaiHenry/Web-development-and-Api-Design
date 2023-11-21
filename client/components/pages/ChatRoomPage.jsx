@@ -2,6 +2,17 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ApiContext } from '../../ApiContext';
 
+function ChatRoomCard({ room, onDelete, onEdit }) {
+    return (
+      <div>
+        <h3>{room.name}</h3>
+        <p>{room.description}</p>
+        <button onClick={() => onEdit(room._id)}>Edit</button>
+      </div>
+    );
+  }
+  
+
 export function ChatRoomPage() {
   const [chatRooms, setChatRooms] = useState([]);
   const { fetchChatRooms } = useContext(ApiContext);
@@ -20,18 +31,20 @@ export function ChatRoomPage() {
     loadChatRooms();
   }, [fetchChatRooms]);
 
-  const handleRoomClick = (roomId) => {
-    navigate(`/chatroom/${roomId}`); // Navigate to connected chatroom.
-  };
+  function editRoom(chatRoomId) {
+    navigate(`/edit/${chatRoomId}`);
+  }
 
   return (
     <div>
       <h2>Available rooms</h2>
       <ul>
         {chatRooms.map(room => (
-          <li key={room.userId} onClick={() => handleRoomClick(room.id)}>
-            {room.name}
-          </li>
+          <ChatRoomCard 
+          key={room._id}
+          room={room}
+          onEdit={editRoom}
+          />
         ))}
       </ul>
     </div>
