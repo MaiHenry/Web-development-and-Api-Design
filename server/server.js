@@ -4,7 +4,8 @@ import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import path from "path";
 
-// Imports for later.
+import { LoginApi } from "./routes/loginApi.js";
+import { googleConfig, microsoftConfig, fetchUser } from "./config.js";
 
 dotenv.config();
 let db;
@@ -21,12 +22,45 @@ mongoClient
   .then(() => {
     console.log("Connected to MongoDB");
     db = mongoClient.db("webutvikling");
+    app.use("/api/login", LoginApi());
 
-    // Routes and middleware for later
+    // Ouath config Routes
+    app.get("/auth/google/config", async (req, res) => {
+      try {
+        const config = await googleConfig();
+        res.json(config);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal Server Error" });
+      }
+    });
 
-    // Ouath config Routes for Google and Microsoft
+    app.get("/auth/microsoft/config", async (req, res) => {
+      try {
+        const config = await microsoftConfig();
+        res.json(config);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal Server Error" });
+      }
+    });
 
-    // OAuth callback for ^
+    // OAuth callback
+    app.post("/auth/callback", async (req, res) => {
+      const { access_token, provider } = req.body;
+      try {
+        const config =
+          provider === "google"
+            ? await googleConfig()
+            : await microsoftConfig();
+        const userProfile = await fetchUser(access_token, config);
+        // Handle the user profile (e.g., creating a session, storing in the database)
+        res.json(userProfile);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Failed to fetch user profile" });
+      }
+    });
 
     // For serving static files and routes
     app.use(express.static(path.resolve("../client/dist")));
