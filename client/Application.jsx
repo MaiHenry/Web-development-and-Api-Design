@@ -33,21 +33,12 @@ export function Application() {
           <h1>Chatroom</h1>
         </header>
         <nav>
-        <Link className="navbar-link" to="/chatroom">
-            Browse
-          </Link>
-        <Link className="navbar-link" to="/create">
-            Create Room
-          </Link>
           <LoginNavLink />
         </nav>
         <main>
           <Routes>
             <Route path="/" element={<LoginPage />} />
-            <Route
-              path="/login/callback"
-              element={<LoginCallback applicationConfig={applicationConfig} />}
-            />
+            <Route path="/login/callback" element={<LoginCallback applicationConfig={applicationConfig} />}/>
             <Route path="/profile" element={<ProtectedRoutes><ProfilePage /> </ ProtectedRoutes>} />
             <Route path="/chatroom" element={<ProtectedRoutes><ChatRoomPage /> </ ProtectedRoutes>} />
             <Route path="/create" element={<ProtectedRoutes><CreateRoomPage /> </ ProtectedRoutes>} />

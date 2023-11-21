@@ -1,39 +1,40 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ApiContext } from '../../ApiContext';
-import { LoginContext } from '../../LoginContext';
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { ApiContext } from "../../ApiContext";
+import { LoginContext } from "../../LoginContext";
 
 function ChatRoomCard({ room, onDelete, onEdit }) {
-    const { loginMethod } = useContext(LoginContext)
-    return (
-      <div>
-        <h3>{room.name}</h3>
-        <p>{room.description}</p>
-        {loginMethod === 'microsoft' && (
+  const { loginMethod } = useContext(LoginContext);
+  return (
+    <div>
+      <h3>{room.name}</h3>
+      <p>{room.description}</p>
+      {loginMethod === "microsoft" && (
         <>
           <button onClick={() => onEdit(room._id)}>Edit</button>
           <button onClick={() => onDelete(room._id)}>Delete</button>
         </>
       )}
-      </div>
-    );
-  }
-  
+    </div>
+  );
+}
+
 export function ChatRoomPage() {
   const [chatRooms, setChatRooms] = useState([]);
   const { fetchChatRooms, deleteRoom } = useContext(ApiContext);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { loginMethod } = useContext(LoginContext);
 
   useEffect(() => {
     setIsLoading(true);
     fetchChatRooms()
-      .then(data => {
+      .then((data) => {
         setChatRooms(data);
         setIsLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         setError(err);
         setIsLoading(false);
       });
@@ -50,13 +51,18 @@ export function ChatRoomPage() {
   const handleDeleteRoom = (chatRoomId) => {
     deleteRoom(chatRoomId)
       .then(() => {
-        setChatRooms(prevRooms => prevRooms.filter(room => room._id !== chatRoomId));
+        setChatRooms((prevRooms) =>
+          prevRooms.filter((room) => room._id !== chatRoomId)
+        );
       })
-      .catch(error => {
-        console.error('Error:', error);
+      .catch((error) => {
+        console.error("Error:", error);
       });
   };
 
+  const handleCreateRoom = () => {
+    navigate("/create");
+  };
 
   function editRoom(chatRoomId) {
     navigate(`/edit/${chatRoomId}`);
@@ -66,15 +72,18 @@ export function ChatRoomPage() {
     <div>
       <h2>Available rooms</h2>
       <ul>
-        {chatRooms.map(room => (
-          <ChatRoomCard 
-          key={room._id}
-          room={room}
-          onEdit={editRoom}
-          onDelete={() => handleDeleteRoom(room._id)}
+        {chatRooms.map((room) => (
+          <ChatRoomCard
+            key={room._id}
+            room={room}
+            onEdit={editRoom}
+            onDelete={() => handleDeleteRoom(room._id)}
           />
         ))}
       </ul>
+      {loginMethod === "microsoft" && (
+        <button onClick={handleCreateRoom}>Create new room</button>
+      )}
     </div>
   );
 }
