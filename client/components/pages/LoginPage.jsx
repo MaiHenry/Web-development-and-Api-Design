@@ -1,5 +1,6 @@
 import React from "react";
 import { LoginWithOpenIdButton } from "../login/LoginWithOpenIdButton";
+import '../../Styles.css';  
 
 export function LoginPage() {
 

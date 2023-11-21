@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../../LoginContext";
-// import '../../Styles.css';  
+import '../../Styles.css';  
 
 export function ProfilePage() {
   const navigate = useNavigate();

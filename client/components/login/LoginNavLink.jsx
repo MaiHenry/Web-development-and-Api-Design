@@ -7,8 +7,8 @@ export function LoginNavLink() {
 
   // Check if user is logged in
   if (user) {
-    return <Link to="/profile">My Profile</Link>;
+    return <Link to="/profile" className="navbar-link">My Profile</Link>;
   }
 
-  return <Link to="/login">Log in</Link>;
+  return <Link to="/" className="navbar-link">Log in</Link>;
 }
