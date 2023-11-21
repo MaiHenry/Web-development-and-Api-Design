@@ -32,14 +32,14 @@ export function ChatRoomApi(db) {
 
   // Add a new room
   router.post("/add", async (req, res) => {
-    const { name, description } = req.body;
+    const { name, description, userId } = req.body;
     try {
       const existingChatRoom = await collection.findOne({ name });
       if (existingChatRoom) {
         return res.status(400).send("A room with this name already exists");
       }
 
-      await collection.insertOne({ name, description });
+      await collection.insertOne({ name, description, userId });
       res.status(201).json({ message: "Room added successfully" });
     } catch (err) {
       res.status(500).send("Error adding room");

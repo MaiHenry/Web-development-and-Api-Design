@@ -6,7 +6,7 @@ export function LoginPage() {
 
   return (
     <>
-      <h2>Choose</h2>
+      <h2>Sign in to access features</h2>
       <div className="headerDivider"></div>
       <LoginWithOpenIdButton />
       <div className="spacer"></div>

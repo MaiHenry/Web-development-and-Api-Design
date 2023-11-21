@@ -10,6 +10,8 @@ import { LoginPage } from "./components/pages/LoginPage";
 import { LoginCallback } from "./components/login/LoginCallback";
 import { LoginFooter } from "./components/login/LoginFooter";
 import { LoginNavLink } from "./components/login/LoginNavLink";
+import { ChatRoomPage } from "./components/pages/ChatRoomPage";
+import { CreateRoomPage } from "./components/pages/CreateRoomPage";
 
 export function Application() {
   const applicationConfig = {
@@ -30,8 +32,12 @@ export function Application() {
           <h1>Chatroom</h1>
         </header>
         <nav>
-          <div className="dividerNav" />
-          <div className="dividerNav" />
+        <Link className="navbar-link" to="/chatroom">
+            Browse
+          </Link>
+        <Link className="navbar-link" to="/create">
+            Create Room
+          </Link>
           <LoginNavLink />
         </nav>
         <main>
@@ -42,6 +48,8 @@ export function Application() {
               element={<LoginCallback applicationConfig={applicationConfig} />}
             />
             <Route path="/profile" element={<ProtectedRoutes><ProfilePage /> </ ProtectedRoutes>} />
+            <Route path="/chatroom" element={<ProtectedRoutes><ChatRoomPage /> </ ProtectedRoutes>} />
+            <Route path="/create" element={<ProtectedRoutes><CreateRoomPage /> </ ProtectedRoutes>} />
             <Route path="*" element={<h2>Not Found</h2>} />
           </Routes>
         </main>

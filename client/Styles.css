@@ -63,16 +63,19 @@ footer {
 
 /* Navbar link styles */
 nav {
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .navbar-link {
     color: white;
     background-color: #199bc6;
-    padding: 5px 15px;
+    padding: 10px 20px;
     border-radius: 4px;
     transition: all 0.3s ease;
     text-decoration: none;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .navbar-link:hover,
@@ -81,6 +84,27 @@ nav {
     background: #005f73;
     text-decoration: none; 
 }
+
+/* Styles for forms */
+.object-form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+  }
+  
+ .object-form label {
+    font-weight: 600;
+    margin-bottom: 0.5em;
+  }
+  
+ .object-form input,
+  .object-form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+
 
 /* Some nice design tools */
 

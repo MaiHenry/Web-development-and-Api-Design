@@ -21,15 +21,15 @@ export function ChatRoomPage() {
   }, [fetchChatRooms]);
 
   const handleRoomClick = (roomId) => {
-    navigate(`/chat/${roomId}`); // Navigate to connected chatroom.
+    navigate(`/chatroom/${roomId}`); // Navigate to connected chatroom.
   };
 
   return (
     <div>
-      <h2>Chat Rooms</h2>
+      <h2>Available rooms</h2>
       <ul>
         {chatRooms.map(room => (
-          <li key={room.id} onClick={() => handleRoomClick(room.id)}>
+          <li key={room.userId} onClick={() => handleRoomClick(room.id)}>
             {room.name}
           </li>
         ))}

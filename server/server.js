@@ -24,7 +24,7 @@ mongoClient
     console.log("Connected to MongoDB");
     db = mongoClient.db("webutvikling");
     app.use("/api/login", LoginApi());
-    app.use("/api/chat", ChatRoomApi(db));
+    app.use("/api/chatroom", ChatRoomApi(db));
 
     // Ouath config Routes
     app.get("/auth/google/config", async (req, res) => {
@@ -56,8 +56,7 @@ mongoClient
             ? await googleConfig()
             : await microsoftConfig();
         const userProfile = await fetchUser(access_token, config);
-        // Handle the user profile (e.g., creating a session, storing in the database)
-        res.json(userProfile);
+        res.json(userProfile); // Handle the user profile
       } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Failed to fetch user profile" });
