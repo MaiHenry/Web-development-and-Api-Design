@@ -83,6 +83,15 @@ nav {
 }
 
 /* Some nice design tools */
+
+.headerDivider{
+    height: 2px;
+    background-color: #555555;
+    margin: 8px 0; 
+    width: 80px;
+    margin-bottom: 20px;
+}
+
 .spacer {
     margin: 10px;
   }
