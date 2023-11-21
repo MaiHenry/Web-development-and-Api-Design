@@ -2,6 +2,7 @@ import React from "react";
 import { postJSON } from "./components/apiRequests/postJSON";
 import { fetchJSON } from "./components/apiRequests/fetchJSON";
 import { putJSON } from "./components/apiRequests/putJSON";
+import { deleteJSON } from "./components/apiRequests/deleteJSON";
 
 // ApiContext for chat related API
 export const ApiContext = React.createContext({
@@ -16,5 +17,8 @@ export const ApiContext = React.createContext({
   },
   updateChatRoom: async (roomId, roomData) => {
     return await putJSON(`/api/chatroom/${roomId}`, roomData);
+  },
+  deleteRoom: async (roomId) => {
+    return await deleteJSON(`/api/chatroom/${roomId}`);
   },
 });

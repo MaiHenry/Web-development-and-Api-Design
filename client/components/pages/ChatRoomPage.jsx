@@ -8,6 +8,7 @@ function ChatRoomCard({ room, onDelete, onEdit }) {
         <h3>{room.name}</h3>
         <p>{room.description}</p>
         <button onClick={() => onEdit(room._id)}>Edit</button>
+        <button onClick={() => onDelete(room._id)}>Delete</button>
       </div>
     );
   }
@@ -15,21 +16,42 @@ function ChatRoomCard({ room, onDelete, onEdit }) {
 
 export function ChatRoomPage() {
   const [chatRooms, setChatRooms] = useState([]);
-  const { fetchChatRooms } = useContext(ApiContext);
+  const { fetchChatRooms, deleteRoom } = useContext(ApiContext);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const loadChatRooms = async () => {
-      try {
-        const rooms = await fetchChatRooms();
-        setChatRooms(rooms);
-      } catch (error) {
-        console.error('Error fetching chat rooms:', error);
-      }
-    };
-
-    loadChatRooms();
+    setIsLoading(true);
+    fetchChatRooms()
+      .then(data => {
+        setChatRooms(data);
+        setIsLoading(false);
+      })
+      .catch(err => {
+        setError(err);
+        setIsLoading(false);
+      });
   }, [fetchChatRooms]);
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  const handleDeleteRoom = (chatRoomId) => {
+    deleteRoom(chatRoomId)
+      .then(() => {
+        setChatRooms(prevRooms => prevRooms.filter(room => room._id !== chatRoomId));
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  };
+
 
   function editRoom(chatRoomId) {
     navigate(`/edit/${chatRoomId}`);
@@ -44,6 +66,7 @@ export function ChatRoomPage() {
           key={room._id}
           room={room}
           onEdit={editRoom}
+          onDelete={() => handleDeleteRoom(room._id)}
           />
         ))}
       </ul>
