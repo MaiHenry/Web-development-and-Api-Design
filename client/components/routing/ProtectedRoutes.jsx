@@ -4,7 +4,7 @@ import { LoginContext } from '../../LoginContext';
 
 export function ProtectedRoutes({ children }) {
   const { user } = useContext(LoginContext);
-  const location = useLocation(); // Remember the route redirection
+  const location = useLocation(); // Remember the route for redirection
 
   if (!user) {
     console.log("Must login to access that route")

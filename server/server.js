@@ -4,6 +4,7 @@ import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import path from "path";
 
+import { ChatRoomApi } from "./routes/chatRoomApi.js";
 import { LoginApi } from "./routes/loginApi.js";
 import { googleConfig, microsoftConfig, fetchUser } from "./config.js";
 
@@ -23,6 +24,7 @@ mongoClient
     console.log("Connected to MongoDB");
     db = mongoClient.db("webutvikling");
     app.use("/api/login", LoginApi());
+    app.use("/api/chat", ChatRoomApi(db));
 
     // Ouath config Routes
     app.get("/auth/google/config", async (req, res) => {
