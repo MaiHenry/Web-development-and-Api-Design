@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ApiContext } from "../../ApiContext";
 import { LoginContext } from "../../LoginContext";
 import "../../Styles.css";
@@ -19,8 +19,7 @@ function MessageCard({ message }) {
 
 export function ActiveChatRoomPage() {
   const { roomId } = useParams();
-  const navigate = useNavigate();
-  const { user } = useContext(LoginContext);
+  const { user, profileName} = useContext(LoginContext);
   const { fetchMessages, postMessage, fetchChatRoomById } = useContext(ApiContext);
 
   const [roomDetails, setRoomDetails] = useState({});
@@ -49,7 +48,7 @@ export function ActiveChatRoomPage() {
 
   const handleSendMessage = () => {
     const messageData = {
-      name: { profileName: user?.profileName },
+      name: {profileName},
       userId: user?._id,
       content,
       timestamp: new Date().toISOString(),
