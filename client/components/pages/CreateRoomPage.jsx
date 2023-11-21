@@ -26,7 +26,7 @@ export function CreateRoomPage() {
     createRoom(roomData)
       .then(() => {
         setSuccessMessage("Room created!");
-        navigate("/chatroom");
+        navigate("/");
       })
       .catch((error) => {
         setErrorMessage("Could not add the room.");
