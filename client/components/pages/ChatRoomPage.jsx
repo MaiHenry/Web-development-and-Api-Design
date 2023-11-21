@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { ApiContext } from "../../ApiContext";
 import { LoginContext } from "../../LoginContext";
 
-function ChatRoomCard({ room, onDelete, onEdit }) {
+function ChatRoomCard({ room, onDelete, onEdit, onEnterRoom }) {
   const { loginMethod } = useContext(LoginContext);
   return (
     <div>
       <h3>{room.name}</h3>
       <p>{room.description}</p>
+      <button onClick={() => onEnterRoom(room._id)}>Enter Room</button>
       {loginMethod === "microsoft" && (
         <>
           <button onClick={() => onEdit(room._id)}>Edit</button>
@@ -68,6 +69,10 @@ export function ChatRoomPage() {
     navigate(`/edit/${chatRoomId}`);
   }
 
+  const enterRoom = (chatRoomId) => {
+    navigate(`/chatroom/${chatRoomId}`);
+  }
+
   return (
     <div>
       <h2>Available rooms</h2>
@@ -76,6 +81,7 @@ export function ChatRoomPage() {
           <ChatRoomCard
             key={room._id}
             room={room}
+            onEnterRoom={enterRoom}
             onEdit={editRoom}
             onDelete={() => handleDeleteRoom(room._id)}
           />

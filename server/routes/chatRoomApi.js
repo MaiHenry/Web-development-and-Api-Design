@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 
 export function ChatRoomApi(db) {
   const router = new Router();
-  const collection = db.collection("chatrooms"); 
+  const collection = db.collection("chatrooms");
 
   // Fetch all Rooms
   router.get("/", async (req, res) => {
@@ -77,6 +77,44 @@ export function ChatRoomApi(db) {
       res.status(200).json({ message: "Room updated successfully" });
     } catch (err) {
       res.status(500).send("Error updating chat room");
+    }
+  });
+
+  // Active Chat Room Stuff
+  const messagesCollection = db.collection("messages");
+
+  // Fetch messages from specific room
+  router.get("/:id/messages", async (req, res) => {
+    try {
+      const roomId = new ObjectId(req.params.id);
+      const messages = await messagesCollection
+        .find({ chatRoomId: roomId })
+        .sort({ timestamp: 1 })
+        .toArray();
+      res.json(messages);
+    } catch (err) {
+      res.status(500).send(`Error fetching messages: ${err.message}`);
+    }
+  });
+
+  // Add a new message to a specific room
+  router.post("/:roomId/messages", async (req, res) => {
+    const { roomId } = req.params;
+    const { userId, content } = req.body;
+
+    try {
+      const newMessage = {
+        chatRoomId: new ObjectId(roomId),
+        userId: new ObjectId(userId),
+        content,
+        timestamp: new Date(),
+      };
+
+      await messagesCollection.insertOne(newMessage);
+      res.status(201).json({ message: "Message sent" });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Error sending message");
     }
   });
 
