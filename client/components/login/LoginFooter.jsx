@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import { LoginContext } from "../../LoginContext";
-// import '../../Styles.css';
+import '../../Styles.css';
 
 export function LoginFooter() {
   const { profileName } = useContext(LoginContext);

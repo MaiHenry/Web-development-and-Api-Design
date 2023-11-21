@@ -28,6 +28,6 @@ export const ApiContext = React.createContext({
     return await fetchJSON(`/api/chatroom/${roomId}/messages`);
   },
   postMessage: async (roomId, messageData) => {
-    return await postJSON(`/api/chatroom/${roomId}/messages`, { messageData });
+    return await postJSON(`/api/chatroom/${roomId}/messages`,  messageData );
   },
 });

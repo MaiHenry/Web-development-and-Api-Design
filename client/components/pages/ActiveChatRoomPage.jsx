@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { ApiContext } from "../../ApiContext";
 import { LoginContext } from "../../LoginContext";
+import "../../Styles.css";
 
 function MessageCard({ message }) {
   const timestamp = new Date(message.timestamp).toLocaleString();
-
   return (
     <div className="message-card">
+      <span className="timestamp">{timestamp}</span>
       <p>
-        <strong>{message.senderName}</strong> <span>{timestamp}</span>
+        <strong>{message.name?.profileName}</strong>
       </p>
       <p>{message.content}</p>
     </div>
@@ -17,56 +18,68 @@ function MessageCard({ message }) {
 }
 
 export function ActiveChatRoomPage() {
+  const { roomId } = useParams();
+  const navigate = useNavigate();
   const { user } = useContext(LoginContext);
-  const { fetchMessages, postMessage } = useContext(ApiContext);
+  const { fetchMessages, postMessage, fetchChatRoomById } = useContext(ApiContext);
 
+  const [roomDetails, setRoomDetails] = useState({});
   const [messages, setMessages] = useState([]);
   const [content, setContent] = useState("");
-  const { roomId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
-    fetchMessages(roomId)
-      .then((data) => {
-        setMessages(data);
+    fetchChatRoomById(roomId)
+      .then((room) => {
+        setRoomDetails(room);
+        return fetchMessages(roomId);
+      })
+      .then((messages) => {
+        setMessages(messages);
         setIsLoading(false);
       })
       .catch((err) => {
-        setError(err);
+        console.error("Error:", err);
+        setError(err.message);
         setIsLoading(false);
       });
-  }, [roomId, fetchMessages]);
+  }, [roomId, fetchChatRoomById, fetchMessages]);
 
   const handleSendMessage = () => {
     const messageData = {
-      userId: user && user._id,
+      name: { profileName: user?.profileName },
+      userId: user?._id,
       content,
       timestamp: new Date().toISOString(),
     };
 
     postMessage(roomId, messageData)
       .then(() => {
-        setSuccessMessage("Message sent");
+        setContent("");
+        return fetchMessages(roomId);
+      })
+      .then((updatedMessages) => {
+        setMessages(updatedMessages);
       })
       .catch((err) => {
-        console.error("Error sending message:", err);
+        console.error("Error:", err);
       });
   };
 
   if (isLoading) {
-    return <div>Loading messages...</div>;
+    return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>Error: {error}</div>;
   }
 
   return (
     <div>
-      <h2>Chat Room: {roomId}</h2>
+      <h2>{roomDetails.name}</h2>
+      <p>{roomDetails.description}</p>
 
       <div className="messages-container">
         {messages.map((message) => (
@@ -75,17 +88,15 @@ export function ActiveChatRoomPage() {
       </div>
 
       <div className="message-input">
-
-        <form className="object-form" onSubmit={(e) => e.preventDefault()}>
-          <textarea
+        <form class="object-form" onSubmit={(e) => e.preventDefault()}>
+          <input
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder="Write a message ..."
+            placeholder="Write a message..."
           />
           <button type="submit" onClick={handleSendMessage}>
             Send
           </button>
-          {successMessage && <div>{successMessage}</div>}
         </form>
       </div>
     </div>
