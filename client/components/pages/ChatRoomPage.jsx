@@ -71,7 +71,7 @@ export function ChatRoomPage() {
 
   const enterRoom = (chatRoomId) => {
     navigate(`/chatroom/${chatRoomId}`);
-  }
+  };
 
   return (
     <div>
@@ -88,7 +88,12 @@ export function ChatRoomPage() {
         ))}
       </ul>
       {loginMethod === "microsoft" && (
-        <button onClick={handleCreateRoom}>Create new room</button>
+        <div>
+          <div className="line"></div>
+          <p>Make a new community!</p>
+          <div className="spacer"></div>
+          <button onClick={handleCreateRoom}>Create new room</button>
+        </div>
       )}
     </div>
   );

@@ -27,7 +27,7 @@ export function EditChatRoomPage() {
     event.preventDefault();
     try {
       await updateChatRoom(chatRoomId, { name, description });
-      navigate('/chatroom');
+      navigate('/');
     } catch (error) {
       console.error('Error updating room:', error);
     }

@@ -7,7 +7,7 @@ import "../../Styles.css";
 export function CreateRoomPage() {
   const { createRoom } = useContext(ApiContext);
   const navigate = useNavigate();
-  const { user } = useContext(LoginContext)
+  const { user } = useContext(LoginContext);
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -20,7 +20,7 @@ export function CreateRoomPage() {
     const roomData = {
       name,
       description,
-      userId: user && user._id // Room connected to logged in user.
+      userId: user && user._id, // Room connected to logged in user.
     };
 
     createRoom(roomData)
@@ -55,7 +55,7 @@ export function CreateRoomPage() {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-
+      <div className="line"></div>
       <button type="submit">Create Room</button>
       {successMessage && <div>{successMessage}</div>}
       {errorMessage && <div>{errorMessage}</div>}
