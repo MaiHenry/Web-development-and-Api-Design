@@ -5,7 +5,6 @@ export const LoginContext = React.createContext({
   user: undefined,
   profileName: undefined,
   applicationConfig: undefined,
-  clientId: undefined,
   loadUser: () => {},
   unloadUser: () => {},
 });
@@ -14,7 +13,6 @@ export const LoginContext = React.createContext({
 export const LoginProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
   const [profileName, setProfileName] = useState(undefined);
-  const [clientId, setclientId] = useState(undefined);
 
   // Configuration for different auth.
   const applicationConfig = {
@@ -37,7 +35,6 @@ export const LoginProvider = ({ children }) => {
       if (userId && username) {
         setUser({ direct: { _id: userId, username } });
         setProfileName(username);
-        setclientId(userId);
       } else {
         // If user data is not in SS, fetch from API
         const response = await fetch("/api/login");
@@ -53,11 +50,7 @@ export const LoginProvider = ({ children }) => {
           // Micrsoft users
           setUser(userData.user.microsoft);
           setProfileName(userData.user.microsoft.name);
-        } else if (userData.user.direct) {
-          // Direct users
-          setUser(userData.user.direct);
-          setProfileName(userData.user.direct.username);
-        }
+        } 
       }
     } catch (error) {
       console.error("Error loading user:", error);
@@ -66,11 +59,8 @@ export const LoginProvider = ({ children }) => {
 
   // Clear user data from sessionStorage and reset state
   const unloadUser = () => {
-    window.sessionStorage.removeItem("userId");
-    window.sessionStorage.removeItem("username");
     setUser(undefined);
     setProfileName(undefined);
-    setclientId(undefined);
   };
 
   // useEffect to load user data
@@ -86,8 +76,6 @@ export const LoginProvider = ({ children }) => {
         setUser,
         profileName,
         setProfileName,
-        clientId,
-        setclientId,
         applicationConfig,
         loadUser,
         unloadUser,

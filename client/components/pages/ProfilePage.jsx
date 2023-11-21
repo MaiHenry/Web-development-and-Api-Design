@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../../LoginContext";
-import '../../Styles.css';  
+// import '../../Styles.css';  
 
 export function ProfilePage() {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export function ProfilePage() {
           </div>
         )}
         <p><strong>Name:</strong> {profileName}</p>
-        <p><strong>Address:</strong> {user.email}{clientId}</p>
+        <p><strong>Address:</strong> {user.email}</p>
       </div>
   
       <form onSubmit={handleSubmitLogout} className="logout-form">

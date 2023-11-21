@@ -2,10 +2,13 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { LoginProvider } from "./LoginContext";
 
 // Import pages and components
+import { ProfilePage } from "./components/pages/ProfilePage";
 
 // Login Imports
 import { LoginPage } from "./components/pages/LoginPage";
 import { LoginCallback } from "./components/login/LoginCallback";
+import { LoginFooter } from "./components/login/LoginFooter";
+import { LoginNavLink } from "./components/login/LoginNavLink";
 
 export function Application() {
   const applicationConfig = {
@@ -28,10 +31,12 @@ export function Application() {
         <nav>
           <div className="dividerNav" />
           <div className="dividerNav" />
+          <LoginNavLink />
         </nav>
         <main>
           <Routes>
             <Route path="/" element={<LoginPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
             <Route
               path="/login/callback"
               element={<LoginCallback applicationConfig={applicationConfig} />}
@@ -39,6 +44,7 @@ export function Application() {
             <Route path="*" element={<h2>Not Found</h2>} />
           </Routes>
         </main>
+        <LoginFooter />
       </BrowserRouter>
     </LoginProvider>
   );
