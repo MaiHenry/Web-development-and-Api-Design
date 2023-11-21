@@ -3,6 +3,7 @@ import { LoginProvider } from "./LoginContext";
 
 // Import pages and components
 import { ProfilePage } from "./components/pages/ProfilePage";
+import { ProtectedRoutes } from "./components/routing/ProtectedRoutes";
 
 // Login Imports
 import { LoginPage } from "./components/pages/LoginPage";
@@ -36,11 +37,11 @@ export function Application() {
         <main>
           <Routes>
             <Route path="/" element={<LoginPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
             <Route
               path="/login/callback"
               element={<LoginCallback applicationConfig={applicationConfig} />}
             />
+            <Route path="/profile" element={<ProtectedRoutes><ProfilePage /> </ ProtectedRoutes>} />
             <Route path="*" element={<h2>Not Found</h2>} />
           </Routes>
         </main>
