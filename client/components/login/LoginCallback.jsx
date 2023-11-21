@@ -63,7 +63,7 @@ export function LoginCallback() {
         throw new Error("Login failed " + response.statusText);
       }
       await loadUser();
-      navigate("/chatroom");
+      navigate("/");
     }
   }
 

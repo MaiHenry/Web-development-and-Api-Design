@@ -8,7 +8,7 @@ export function ProtectedRoutes({ children }) {
 
   if (!user) {
     console.log("Must login to access that route")
-    return <Navigate to="/" state={{ from: location }} replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   return children;

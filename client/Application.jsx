@@ -37,10 +37,10 @@ export function Application() {
         </nav>
         <main>
           <Routes>
-            <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<ProtectedRoutes><ChatRoomPage /> </ ProtectedRoutes>} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/login/callback" element={<LoginCallback applicationConfig={applicationConfig} />}/>
             <Route path="/profile" element={<ProtectedRoutes><ProfilePage /> </ ProtectedRoutes>} />
-            <Route path="/chatroom" element={<ProtectedRoutes><ChatRoomPage /> </ ProtectedRoutes>} />
             <Route path="/create" element={<ProtectedRoutes><CreateRoomPage /> </ ProtectedRoutes>} />
             <Route path="/edit/:chatRoomId" element={<ProtectedRoutes><EditChatRoomPage /> </ ProtectedRoutes>} />
             <Route path="*" element={<h2>Not Found</h2>} />

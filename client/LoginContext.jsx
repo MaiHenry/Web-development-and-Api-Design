@@ -32,7 +32,7 @@ export const LoginProvider = ({ children }) => {
     try {
       const userId = window.sessionStorage.getItem("userId");
       const username = window.sessionStorage.getItem("username");
-      
+
       if (userId && username) {
         setUser({ direct: { _id: userId, username } });
         setProfileName(username);
