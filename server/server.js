@@ -7,7 +7,7 @@ import path from "path";
 // Imports for later.
 
 dotenv.config();
-let db; 
+let db;
 
 const app = express();
 app.use(express.json());
