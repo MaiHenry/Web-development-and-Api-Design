@@ -5,6 +5,7 @@ export const LoginContext = React.createContext({
   user: undefined,
   profileName: undefined,
   applicationConfig: undefined,
+  loginMethod: undefined,
   loadUser: () => {},
   unloadUser: () => {},
 });
@@ -13,6 +14,7 @@ export const LoginContext = React.createContext({
 export const LoginProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
   const [profileName, setProfileName] = useState(undefined);
+  const [loginMethod, setLoginMethod] = useState(undefined);
 
   // Configuration for different auth.
   const applicationConfig = {
@@ -46,10 +48,12 @@ export const LoginProvider = ({ children }) => {
         if (userData.user.google) {
           setUser(userData.user.google); // Google users
           setProfileName(userData.user.google.name);
+          setLoginMethod('google');
         } else if (userData.user.microsoft) {
           // Micrsoft users
           setUser(userData.user.microsoft);
           setProfileName(userData.user.microsoft.name);
+          setLoginMethod('microsoft');
         } 
       }
     } catch (error) {
@@ -75,6 +79,7 @@ export const LoginProvider = ({ children }) => {
         user,
         setUser,
         profileName,
+        loginMethod,
         setProfileName,
         applicationConfig,
         loadUser,

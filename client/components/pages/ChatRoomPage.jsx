@@ -1,19 +1,24 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ApiContext } from '../../ApiContext';
+import { LoginContext } from '../../LoginContext';
 
 function ChatRoomCard({ room, onDelete, onEdit }) {
+    const { loginMethod } = useContext(LoginContext)
     return (
       <div>
         <h3>{room.name}</h3>
         <p>{room.description}</p>
-        <button onClick={() => onEdit(room._id)}>Edit</button>
-        <button onClick={() => onDelete(room._id)}>Delete</button>
+        {loginMethod === 'microsoft' && (
+        <>
+          <button onClick={() => onEdit(room._id)}>Edit</button>
+          <button onClick={() => onDelete(room._id)}>Delete</button>
+        </>
+      )}
       </div>
     );
   }
   
-
 export function ChatRoomPage() {
   const [chatRooms, setChatRooms] = useState([]);
   const { fetchChatRooms, deleteRoom } = useContext(ApiContext);
