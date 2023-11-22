@@ -56,9 +56,10 @@ export function ActiveChatRoomPage() {
   }, [roomId, fetchChatRoomById, fetchMessages]);
 
   const handleSendMessage = () => {
+    const senderName = user.customName || profileName;
     const timestamp = new Date().toISOString();
     const messageData = {
-      name: { profileName },
+      name: { profileName: senderName },
       userId: user?._id,
       userEmail: user.email,
       content,
