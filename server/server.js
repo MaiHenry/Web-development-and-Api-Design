@@ -8,6 +8,7 @@ import { WebSocketServer } from "ws";
 import { ChatRoomApi } from "./routes/chatRoomApi.js";
 import { LoginApi } from "./routes/loginApi.js";
 import { googleConfig, microsoftConfig, fetchUser } from "./config.js";
+import { MessagesApi } from "./routes/messagesApi.js";
 
 dotenv.config();
 let db;
@@ -26,6 +27,7 @@ mongoClient
     db = mongoClient.db("webutvikling");
     app.use("/api/login", LoginApi(db));
     app.use("/api/chatroom", ChatRoomApi(db));
+    app.use("/api/messages", MessagesApi(db));
 
     // Ouath config Routes
     app.get("/auth/google/config", async (req, res) => {

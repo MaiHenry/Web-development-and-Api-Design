@@ -110,13 +110,14 @@ export function ChatRoomApi(db) {
   // Add a new message to a specific room
   router.post("/:roomId/messages", async (req, res) => {
     const { roomId } = req.params;
-    const { name, userId, content } = req.body;
+    const { name, userId, content, userEmail } = req.body;
 
     try {
       const newMessage = {
         name,
         chatRoomId: new ObjectId(roomId),
         userId: new ObjectId(userId),
+        userEmail,
         content,
         timestamp: new Date(),
       };

@@ -6,7 +6,8 @@ import "../../Styles.css";
 
 export function ProfilePage() {
   const navigate = useNavigate();
-  const { user, profileName, unloadUser, customName, customBio, loadUser } = useContext(LoginContext);
+  const { user, profileName, unloadUser, customName, customBio, loadUser } =
+    useContext(LoginContext);
   const [newCustomName, setNewCustomName] = useState(customName);
   const [newCustomBio, setNewCustomBio] = useState(customBio);
 
@@ -17,13 +18,16 @@ export function ProfilePage() {
         customName: newCustomName,
         customBio: newCustomBio,
       });
+      loadUser();
+      await putJSON(`/api/messages/${user.email}`, {
+        newCustomName: newCustomName,
+      });
 
-      setCustomName(newCustomName);
-      setCustomBio(newCustomBio);
+      setNewCustomName(newCustomName);
+      setNewCustomBio(newCustomBio);
     } catch (error) {
       console.error("Failed to update user:", error);
     }
-    loadUser();
   };
 
   async function handleSubmitLogout(e) {

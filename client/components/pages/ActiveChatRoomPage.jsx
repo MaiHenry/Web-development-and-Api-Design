@@ -60,6 +60,7 @@ export function ActiveChatRoomPage() {
     const messageData = {
       name: { profileName },
       userId: user?._id,
+      userEmail: user.email,
       content,
       timestamp,
     };
