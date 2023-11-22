@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-// MongoDB connection setup
+// MongoDB connection setup 
 const mongoClient = new MongoClient(process.env.MONGODB_URI);
 
 mongoClient
