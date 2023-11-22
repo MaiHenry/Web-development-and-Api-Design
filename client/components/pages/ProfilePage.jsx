@@ -21,7 +21,6 @@ export function ProfilePage() {
 
       setCustomName(newCustomName);
       setCustomBio(newCustomBio);
-      
     } catch (error) {
       console.error("Failed to update user:", error);
     }
