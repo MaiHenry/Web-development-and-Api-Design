@@ -12,7 +12,7 @@ export function LoginCallback() {
 
   async function handleCallback() {
     const hash = Object.fromEntries(
-      new URLSearchParams(window.location.hash.substring(1))
+      new URLSearchParams(window.location.hash.substring(1)),
     );
 
     let { access_token, error, error_description, state, code } = hash;
@@ -25,7 +25,7 @@ export function LoginCallback() {
       if (code) {
         const microsoftConfig = applicationConfig.microsoft;
         const { token_endpoint } = await fetchJSON(
-          microsoftConfig.openid_configuration
+          microsoftConfig.openid_configuration,
         );
         const code_verifier = window.sessionStorage.getItem("code_verifier");
         const redirect_uri = `${window.location.origin}/login/callback`;

@@ -74,7 +74,10 @@ export function ProfilePage() {
           <strong>Custom Bio:</strong> {customBio || ""}
         </p>
         <div className="spacer"></div>
+        <div className="line"></div>
         <h3>Update your custom name and bio!</h3>
+        <p>Changes will affect your past, present and future name</p>
+        <div className="spacer"></div>
         <form onSubmit={handleUpdate} className="profile-form">
           <div>
             <input

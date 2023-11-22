@@ -16,6 +16,7 @@ import { CreateRoomPage } from "./components/pages/CreateRoomPage";
 import { EditChatRoomPage } from "./components/pages/EditChatRoomPage";
 import { ActiveChatRoomPage } from "./components/pages/ActiveChatRoomPage";
 import { UserInfoPage } from "./components/pages/UserInfoPage";
+import { AboutPage } from "./components/pages/AboutPage";
 
 export function Application() {
   const applicationConfig = {
@@ -101,6 +102,7 @@ export function Application() {
                 </ProtectedRoutes>
               }
             />
+            <Route path="/about" element={<ProtectedRoutes><AboutPage /></ProtectedRoutes>} />
             <Route path="*" element={<h2>Not Found</h2>} />
           </Routes>
         </main>

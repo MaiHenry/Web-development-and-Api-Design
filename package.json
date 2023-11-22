@@ -1,6 +1,7 @@
 {
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "prettier": "^3.1.0"
   },
   "scripts": {
     "dev": "concurrently npm:dev:client npm:dev:server",
@@ -11,7 +12,9 @@
     "install:server": "cd server && npm install --include=dev",
     "build": "npm run build:client",
     "build:client": "cd client && npm run build",
-    "start": "cd server && npm start"
+    "start": "cd server && npm start",
+    "check:prettier": "prettier --check .",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "ws": "^8.14.2"

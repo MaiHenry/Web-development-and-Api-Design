@@ -70,7 +70,7 @@ export function ActiveChatRoomPage() {
       });
 
     const webSocket = new WebSocket(
-      window.location.origin.replace(/^http/, "ws")
+      window.location.origin.replace(/^http/, "ws"),
     );
 
     webSocket.onmessage = (event) => {

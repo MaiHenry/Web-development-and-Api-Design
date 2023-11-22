@@ -100,7 +100,7 @@ mongoClient
                   userId: messageData.userId,
                   content: messageData.content,
                   timestamp: messageData.timestamp,
-                })
+                }),
               );
             }
           } catch (err) {

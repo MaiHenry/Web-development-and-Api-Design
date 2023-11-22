@@ -59,7 +59,7 @@ export function ChatRoomPage() {
     deleteRoom(chatRoomId)
       .then(() => {
         setChatRooms((prevRooms) =>
-          prevRooms.filter((room) => room._id !== chatRoomId)
+          prevRooms.filter((room) => room._id !== chatRoomId),
         );
       })
       .catch((error) => {

@@ -78,7 +78,7 @@ export function ChatRoomApi(db) {
 
       const result = await collection.updateOne(
         { _id: new ObjectId(id) },
-        { $set: updateData }
+        { $set: updateData },
       );
 
       if (result.matchedCount === 0) {

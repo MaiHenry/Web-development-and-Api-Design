@@ -40,7 +40,7 @@ export function MessagesApi(db) {
     try {
       await messagesCollection.updateMany(
         { userEmail: userEmail },
-        { $set: { "name.profileName": newCustomName } }
+        { $set: { "name.profileName": newCustomName } },
       );
 
       res

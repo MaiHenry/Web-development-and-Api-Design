@@ -20,7 +20,7 @@ export function LoginWithOpenIdButton() {
     };
 
     setGoogleAuthUrl(
-      `${config.authorization_endpoint}?${new URLSearchParams(params)}`
+      `${config.authorization_endpoint}?${new URLSearchParams(params)}`,
     );
   }
 
@@ -45,7 +45,7 @@ export function LoginWithOpenIdButton() {
     });
 
     setMicrosoftAuthUrl(
-      `${config.authorization_endpoint}?${params.toString()}`
+      `${config.authorization_endpoint}?${params.toString()}`,
     );
   }
 
@@ -97,7 +97,7 @@ function randomString(length) {
 export async function sha256(string) {
   const binaryHash = await crypto.subtle.digest(
     "SHA-256",
-    new TextEncoder("utf-8").encode(string)
+    new TextEncoder("utf-8").encode(string),
   );
   return btoa(String.fromCharCode.apply(null, new Uint8Array(binaryHash)))
     .split("=")[0]

@@ -21,13 +21,13 @@ export function LoginApi(db) {
     if (google_access_token) {
       response.user.google = await fetchUser(
         google_access_token,
-        config.google
+        config.google,
       );
     }
     if (microsoft_access_token) {
       response.user.microsoft = await fetchUser(
         microsoft_access_token,
-        config.microsoft
+        config.microsoft,
       );
     }
     res.json(response);
@@ -122,7 +122,7 @@ export function LoginApi(db) {
         .collection("users")
         .updateOne(
           { email: email },
-          { $set: { customName: customName, customBio: customBio } }
+          { $set: { customName: customName, customBio: customBio } },
         );
 
       if (updateResult.matchedCount === 0) {
