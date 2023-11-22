@@ -81,6 +81,7 @@ export function ProfilePage() {
               value={newCustomName}
               onChange={(e) => setNewCustomName(e.target.value)}
               placeholder="Custom Name"
+              required
             />
           </div>
           <div>
