@@ -2,8 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ApiContext } from "../../ApiContext";
 import { LoginContext } from "../../LoginContext";
-import { fetchJSON
- } from "../apiRequests/fetchJSON";
+import { fetchJSON } from "../apiRequests/fetchJSON";
 import "../../Styles.css";
 
 function MessageCard({ message }) {
@@ -82,7 +81,7 @@ export function ActiveChatRoomPage() {
   }, [roomId, fetchChatRoomById, fetchMessages]);
 
   const handleSendMessage = () => {
-    const senderName = customName || profileName;
+    const senderName = customName || profileName || "User";
     const timestamp = new Date().toISOString();
     const messageData = {
       name: { profileName: senderName },

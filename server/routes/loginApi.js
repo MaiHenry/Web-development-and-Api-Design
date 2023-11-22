@@ -96,10 +96,10 @@ export function LoginApi(db) {
     }
   });
 
-   // Endpoint for users, after they've registered
-   router.get("/:id", async (req, res) => {
+  // Endpoint for users, after they've registered
+  router.get("/:id", async (req, res) => {
     try {
-      const user = await db.collection("users").findOne({ 
+      const user = await db.collection("users").findOne({
         _id: new ObjectId(req.params.id),
       });
       if (!user) {

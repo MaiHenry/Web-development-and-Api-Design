@@ -15,11 +15,11 @@ export function EditChatRoomPage() {
   useEffect(() => {
     if (chatRoomId) {
       fetchChatRoomById(chatRoomId)
-        .then(room => {
+        .then((room) => {
           setName(room.name);
           setDescription(room.description);
         })
-        .catch(error => {
+        .catch((error) => {
           console.error("Error getting chat room:", error);
         });
     }
@@ -28,10 +28,14 @@ export function EditChatRoomPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await updateChatRoom(chatRoomId, { name, description, userEmail: user.email });
-      navigate('/');
+      await updateChatRoom(chatRoomId, {
+        name,
+        description,
+        userEmail: user.email,
+      });
+      navigate("/");
     } catch (error) {
-      console.error('Error updating room:', error);
+      console.error("Error updating room:", error);
     }
   };
 

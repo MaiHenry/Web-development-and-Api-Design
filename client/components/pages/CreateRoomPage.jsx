@@ -37,6 +37,7 @@ export function CreateRoomPage() {
   return (
     <form className="object-form" onSubmit={handleSubmit}>
       <h2>Create a Chat Room</h2>
+      <div className="line"></div>
 
       <div>
         <label>Name:</label>
@@ -55,7 +56,7 @@ export function CreateRoomPage() {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <div className="line"></div>
+      <div className="spacer"></div>
       <button type="submit">Create Room</button>
       {successMessage && <div>{successMessage}</div>}
       {errorMessage && <div>{errorMessage}</div>}

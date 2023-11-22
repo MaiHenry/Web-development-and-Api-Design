@@ -5,22 +5,22 @@ export function UserInfoPage() {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { id } = useParams(); 
+  const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`/api/login/${id}`)
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch user");
         }
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         setUser(data);
         setIsLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         setError(error.message);
         setIsLoading(false);
       });
@@ -40,15 +40,25 @@ export function UserInfoPage() {
     <div className="profile-container">
       <h2>User Profile</h2>
       <div className="profile-info">
-        <h3><strong>Name:</strong> {name}</h3>
+        <h3>
+          <strong>Name:</strong> {name}
+        </h3>
         <div className="divider"></div>
-        <p><strong>Email:</strong> {email}</p>
-        <p><strong>Account type:</strong> {provider}</p>
-        <p><strong>Custom Name:</strong> {customName || "None"}</p>
-        <p><strong>Custom Bio:</strong> {customBio || "None"}</p>
+        <p>
+          <strong>Email:</strong> {email}
+        </p>
+        <p>
+          <strong>Account type:</strong> {provider}
+        </p>
+        <p>
+          <strong>Custom Name:</strong> {customName || "None"}
+        </p>
+        <p>
+          <strong>Custom Bio:</strong> {customBio || "None"}
+        </p>
       </div>
 
-      <button onClick={() => navigate('/people')}>Back</button>
+      <button onClick={() => navigate("/people")}>Back</button>
     </div>
   );
 }

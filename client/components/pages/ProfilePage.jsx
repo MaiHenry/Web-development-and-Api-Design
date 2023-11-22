@@ -49,6 +49,7 @@ export function ProfilePage() {
   return (
     <div className="profile-container">
       <h2>Profile Page</h2>
+      <div className="line"></div>
       <div className="profile-info">
         {user.picture === "https://graph.microsoft.com/v1.0/me/photo/$value" ||
         user.picture == null ? (

@@ -40,15 +40,67 @@ export function Application() {
         </nav>
         <main>
           <Routes>
-          <Route path="/" element={<ProtectedRoutes><ChatRoomPage /> </ ProtectedRoutes>} />
+            <Route
+              path="/"
+              element={
+                <ProtectedRoutes>
+                  <ChatRoomPage />{" "}
+                </ProtectedRoutes>
+              }
+            />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/login/callback" element={<LoginCallback applicationConfig={applicationConfig} />}/>
-            <Route path="/profile" element={<ProtectedRoutes><ProfilePage /> </ ProtectedRoutes>} />
-            <Route path="/create" element={<ProtectedRoutes><CreateRoomPage /> </ ProtectedRoutes>} />
-            <Route path="/edit/:chatRoomId" element={<ProtectedRoutes><EditChatRoomPage /> </ ProtectedRoutes>} />
-            <Route path="/chatroom/:roomId" element={<ProtectedRoutes><ActiveChatRoomPage /></ProtectedRoutes>} /> 
-            <Route path="/people" element={<ProtectedRoutes><UsersPage /></ProtectedRoutes>} /> 
-            <Route path="/login/:id" element={<ProtectedRoutes><UserInfoPage /> </ ProtectedRoutes>} />
+            <Route
+              path="/login/callback"
+              element={<LoginCallback applicationConfig={applicationConfig} />}
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoutes>
+                  <ProfilePage />{" "}
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/create"
+              element={
+                <ProtectedRoutes>
+                  <CreateRoomPage />{" "}
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/edit/:chatRoomId"
+              element={
+                <ProtectedRoutes>
+                  <EditChatRoomPage />{" "}
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/chatroom/:roomId"
+              element={
+                <ProtectedRoutes>
+                  <ActiveChatRoomPage />
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/people"
+              element={
+                <ProtectedRoutes>
+                  <UsersPage />
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/login/:id"
+              element={
+                <ProtectedRoutes>
+                  <UserInfoPage />{" "}
+                </ProtectedRoutes>
+              }
+            />
             <Route path="*" element={<h2>Not Found</h2>} />
           </Routes>
         </main>

@@ -17,7 +17,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-// MongoDB connection setup 
+// MongoDB connection setup
 const mongoClient = new MongoClient(process.env.MONGODB_URI);
 
 mongoClient
@@ -88,21 +88,28 @@ mongoClient
 
     server.on("upgrade", (req, socket, head) => {
       wsServer.handleUpgrade(req, socket, head, (socket) => {
-         sockets.push(socket);
-         socket.on("message", (msg) => {
-           try {
-             const messageData = JSON.parse(msg);
-             const id = messageIndex++;
-             for (const recipient of sockets) {
-               recipient.send(JSON.stringify({ name: messageData.name, userId: messageData.userId, content: messageData.content, timestamp: messageData.timestamp }));
-             }
-           } catch (err) {
-             console.error("Error parsing message data:", err);
-             socket.send(JSON.stringify({ error: "Invalid message data" }));
-           }
-         });
+        sockets.push(socket);
+        socket.on("message", (msg) => {
+          try {
+            const messageData = JSON.parse(msg);
+            const id = messageIndex++;
+            for (const recipient of sockets) {
+              recipient.send(
+                JSON.stringify({
+                  name: messageData.name,
+                  userId: messageData.userId,
+                  content: messageData.content,
+                  timestamp: messageData.timestamp,
+                })
+              );
+            }
+          } catch (err) {
+            console.error("Error parsing message data:", err);
+            socket.send(JSON.stringify({ error: "Invalid message data" }));
+          }
+        });
       });
-     });
+    });
   })
   .catch((err) => {
     console.error("Failed to connect to MongoDB", err);

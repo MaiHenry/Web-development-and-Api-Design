@@ -5,8 +5,7 @@ import { putJSON } from "./components/apiRequests/putJSON";
 import { deleteJSON } from "./components/apiRequests/deleteJSON";
 
 export const ApiContext = React.createContext({
-
- // Api for Chat Rooms
+  // Api for Chat Rooms
   fetchChatRooms: async () => {
     return await fetchJSON("/api/chatroom");
   },
@@ -28,6 +27,6 @@ export const ApiContext = React.createContext({
     return await fetchJSON(`/api/chatroom/${roomId}/messages`);
   },
   postMessage: async (roomId, messageData) => {
-    return await postJSON(`/api/chatroom/${roomId}/messages`,  messageData );
+    return await postJSON(`/api/chatroom/${roomId}/messages`, messageData);
   },
 });

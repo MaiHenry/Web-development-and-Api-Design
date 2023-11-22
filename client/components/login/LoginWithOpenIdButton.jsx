@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import googleLogo from "../images/google_logo.png";
 import microsoftLogo from "../images/microsoftlogin.png";
 import { fetchJSON } from "../apiRequests/fetchJSON.jsx";
-import '../../Styles.css';
+import "../../Styles.css";
 
 export function LoginWithOpenIdButton() {
   const [googleAuthUrl, setGoogleAuthUrl] = useState("");

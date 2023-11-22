@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
-import { LoginContext } from '../../LoginContext';
-import { LoginWithOpenIdButton } from '../login/LoginWithOpenIdButton';
-import '../../Styles.css';
+import React, { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import { LoginContext } from "../../LoginContext";
+import { LoginWithOpenIdButton } from "../login/LoginWithOpenIdButton";
+import "../../Styles.css";
 
 export function LoginPage() {
   const { user } = useContext(LoginContext);

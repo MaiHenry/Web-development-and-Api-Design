@@ -8,7 +8,7 @@ function UserCard({ user, onInspect }) {
   }
   return (
     <div className="users-card">
-      <h3>{user.customName || user.name}</h3>
+      <h3>{user.customName || user.name || "User"}</h3>
       <p>{bioText}</p>
       <div className="spacer"></div>
       <button onClick={() => onInspect(user._id)}>Inspect user</button>
@@ -55,6 +55,7 @@ export function UsersPage() {
   return (
     <div>
       <h2>All Users</h2>
+      <div className="line"></div>
       <div>
         {users.map((user) => (
           <UserCard key={user._id} user={user} onInspect={inspectUser} />

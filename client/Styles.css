@@ -1,193 +1,189 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 main {
-    flex: 1;
-    margin: 0.5em auto;
-    min-width: 80%;
-    padding: 2em;
-    border-radius: 1em;
-    border: 1px solid rgba(169, 169, 169, 0.377);
-    background-color: rgb(228, 241, 244);
+  flex: 1;
+  margin: 0.5em auto;
+  min-width: 80%;
+  padding: 2em;
+  border-radius: 1em;
+  border: 1px solid rgba(169, 169, 169, 0.377);
+  background-color: rgb(228, 241, 244);
 }
 
-/* base styles */ 
+/* base styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Quicksand", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", Arial, sans-serif;
 }
 
-h1{
-    font-size: 40px;
-    margin-bottom: 15px;
+h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
 }
 
-h2{
-    margin-bottom: 10px;
+h2 {
+  margin-bottom: 10px;
 }
 
 h3 {
-    margin-bottom: 5px;
-    color: #292929;
+  margin-bottom: 5px;
+  color: #292929;
 }
 
 body {
-    background-color: #f4f4f4;
-    padding: 20px 200px 20px 200px;
+  background-color: #f4f4f4;
+  padding: 20px 200px 20px 200px;
 }
-
 
 /* Button Styles */
 button {
-    background-color: #008cba;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1em;
-    padding: 10px 20px;
-    margin: 5px 10px 10px 0;
+  background-color: #008cba;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 10px 20px;
+  margin: 5px 10px 10px 0;
 }
 
 button:hover {
-    background-color: #005f73;
+  background-color: #005f73;
 }
-
 
 header,
 nav,
 footer {
-    padding-inline: 0.5em;
+  padding-inline: 0.5em;
 }
 
 /* Navbar link styles */
 nav {
-    margin-top: 10px;
-    margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .navbar-link {
-    color: white;
-    background-color: #199bc6;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    margin-right: 10px;
-    margin-bottom: 10px;
+  color: white;
+  background-color: #199bc6;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .navbar-link:hover,
 .navbar-link:focus {
-    color: white;
-    background: #005f73;
-    text-decoration: none; 
+  color: white;
+  background: #005f73;
+  text-decoration: none;
 }
 
 /* Styles for forms */
 .object-form div {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
-  }
-  
- .object-form label {
-    font-weight: 600;
-    margin-bottom: 0.5em;
-  }
-  
- .object-form input,
-  .object-form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
-  }
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
 
-  .profile-form {
-    width: 40%;
-  }
-  
-  .profile-form div {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
-  }
-  
-  .profile-form label {
-    font-weight: 600;
-    margin-bottom: 0.5em;
-  }
-  
-  .profile-form input,
-  .profile-form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
-  }
+.object-form label {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
 
+.object-form input,
+.object-form textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
 
+.profile-form {
+  width: 40%;
+}
+
+.profile-form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.profile-form label {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.profile-form input,
+.profile-form textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
 
 /* Some nice design tools */
 
-.headerDivider{
-    height: 2px;
-    background-color: #555555;
-    margin: 8px 0; 
-    width: 80px;
-    margin-bottom: 20px;
+.headerDivider {
+  height: 2px;
+  background-color: #555555;
+  margin: 8px 0;
+  width: 80px;
+  margin-bottom: 20px;
 }
 
 .spacer {
-    margin: 10px;
-  }
+  margin: 10px;
+}
 
-  img {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.082); 
-    margin-bottom: 5px;
-  }
-  
+img {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.082);
+  margin-bottom: 10px;
+}
+
 .timestamp {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .message-card {
-    background-color: #f6fdff;
-    border: 1px solid #f9feff;
-    border-radius: 10px; 
-    padding: 10px 15px; 
-    margin: 10px 0;
-    max-width: 80%;
+  background-color: #f6fdff;
+  border: 1px solid #f9feff;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  max-width: 80%;
 }
 
 .line {
-    height: 2px;
-    background-color: #55555533; 
-    margin: 8px 0; 
-    width: 80px;
-    margin-bottom: 20px;
+  height: 2px;
+  background-color: #55555533;
+  margin: 8px 0;
+  width: 80px;
+  margin-bottom: 20px;
 }
 
 .footerButton {
-    background-color: #008cba;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1em;
-    padding: 5px 10px;
-    margin: 5px 10px 10px 0;
+  background-color: #008cba;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px 10px;
+  margin: 5px 10px 10px 0;
 }
 
 .users-card {
-    background-color: #f6fdff;
-    border: 1px solid #f9feff;
-    border-radius: 10px; 
-    padding: 10px 15px; 
-    margin: 10px 0;
-    max-width: 40%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  background-color: #f6fdff;
+  border: 1px solid #f9feff;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  max-width: 40%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

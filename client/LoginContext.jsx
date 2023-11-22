@@ -20,7 +20,6 @@ export const LoginProvider = ({ children }) => {
   const [customName, setCustomName] = useState(undefined);
   const [customBio, setCustomBio] = useState(undefined);
 
-
   // Configuration for different auth.
   const applicationConfig = {
     google: {
@@ -64,8 +63,7 @@ export const LoginProvider = ({ children }) => {
         if (userEmail) {
           const dbResponse = await fetch(`/api/login/user/${userEmail}`);
           if (!dbResponse.ok) {
-            throw new Error(
-            );
+            throw new Error();
           }
           const dbUserData = await dbResponse.json();
           setCustomName(dbUserData.customName);
