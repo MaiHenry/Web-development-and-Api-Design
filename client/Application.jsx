@@ -4,6 +4,7 @@ import { LoginProvider } from "./LoginContext";
 // Import pages and components
 import { ProfilePage } from "./components/pages/ProfilePage";
 import { ProtectedRoutes } from "./components/routing/ProtectedRoutes";
+import { UsersPage } from "./components/pages/UsersPage";
 
 // Login Imports
 import { LoginPage } from "./components/pages/LoginPage";
@@ -45,6 +46,7 @@ export function Application() {
             <Route path="/create" element={<ProtectedRoutes><CreateRoomPage /> </ ProtectedRoutes>} />
             <Route path="/edit/:chatRoomId" element={<ProtectedRoutes><EditChatRoomPage /> </ ProtectedRoutes>} />
             <Route path="/chatroom/:roomId" element={<ProtectedRoutes><ActiveChatRoomPage /></ProtectedRoutes>} /> 
+            <Route path="/people" element={<ProtectedRoutes><UsersPage /></ProtectedRoutes>} /> 
             <Route path="*" element={<h2>Not Found</h2>} />
           </Routes>
         </main>

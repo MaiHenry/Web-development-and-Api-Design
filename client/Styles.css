@@ -181,3 +181,13 @@ nav {
     margin: 5px 10px 10px 0;
 }
 
+.users-card {
+    background-color: #f6fdff;
+    border: 1px solid #f9feff;
+    border-radius: 10px; 
+    padding: 10px 15px; 
+    margin: 10px 0;
+    max-width: 40%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

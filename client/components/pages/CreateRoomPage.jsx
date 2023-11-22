@@ -29,7 +29,7 @@ export function CreateRoomPage() {
         navigate("/");
       })
       .catch((error) => {
-        setErrorMessage("Could not add the room.");
+        setErrorMessage("Could not add the room or room already exist.");
         console.error("Error adding room", error);
       });
   }
