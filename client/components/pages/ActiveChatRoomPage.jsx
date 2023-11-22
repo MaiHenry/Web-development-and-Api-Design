@@ -19,8 +19,9 @@ function MessageCard({ message }) {
 
 export function ActiveChatRoomPage() {
   const { roomId } = useParams();
-  const { user, profileName} = useContext(LoginContext);
-  const { fetchMessages, postMessage, fetchChatRoomById } = useContext(ApiContext);
+  const { user, profileName } = useContext(LoginContext);
+  const { fetchMessages, postMessage, fetchChatRoomById } =
+    useContext(ApiContext);
 
   const [roomDetails, setRoomDetails] = useState({});
   const [messages, setMessages] = useState([]);
@@ -45,25 +46,26 @@ export function ActiveChatRoomPage() {
         setError(err.message);
         setIsLoading(false);
       });
-      const webSocket = new WebSocket(process.env.WEBSOCKET + window.location.host);
-      webSocket.onmessage = (event) => {
-        console.log(event.data);
-        setMessages((current) => [...current, JSON.parse(event.data)]);
-      };
-      setWebSocket(webSocket);
+    const webSocket = new WebSocket(
+      process.env.WEBSOCKET + window.location.host
+    );
+    webSocket.onmessage = (event) => {
+      console.log(event.data);
+      setMessages((current) => [...current, JSON.parse(event.data)]);
+    };
+    setWebSocket(webSocket);
   }, [roomId, fetchChatRoomById, fetchMessages]);
 
   const handleSendMessage = () => {
     const timestamp = new Date().toISOString();
     const messageData = {
-      name: {profileName},
+      name: { profileName },
       userId: user?._id,
       content,
       timestamp,
     };
 
     webSocket.send(JSON.stringify(messageData));
-
 
     postMessage(roomId, messageData)
       .then(() => {
