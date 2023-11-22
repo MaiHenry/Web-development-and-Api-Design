@@ -102,7 +102,14 @@ export function Application() {
                 </ProtectedRoutes>
               }
             />
-            <Route path="/about" element={<ProtectedRoutes><AboutPage /></ProtectedRoutes>} />
+            <Route
+              path="/about"
+              element={
+                <ProtectedRoutes>
+                  <AboutPage />
+                </ProtectedRoutes>
+              }
+            />
             <Route path="*" element={<h2>Not Found</h2>} />
           </Routes>
         </main>
