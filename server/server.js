@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import path from "path";
+import { WebSocketServer } from "ws";
 
 import { ChatRoomApi } from "./routes/chatRoomApi.js";
 import { LoginApi } from "./routes/loginApi.js";
@@ -73,11 +74,33 @@ mongoClient
       }
     });
 
-    const port = process.env.PORT || 3000;
-    app.listen(port, () => {
-      console.log(`Server started on http://localhost:${port}`);
-      console.log(`https://pg6301-f1fe83ab10e3.herokuapp.com/`);
-    });
+    
+    const wsServer = new WebSocketServer({ noServer: true });
+
+    // Keep a list of all incomings connections
+    const sockets = [];
+    let messageIndex = 0;
+
+    // Start express app
+    const server = app.listen(process.env.PORT || 3000);
+
+    server.on("upgrade", (req, socket, head) => {
+      wsServer.handleUpgrade(req, socket, head, (socket) => {
+         sockets.push(socket);
+         socket.on("message", (msg) => {
+           try {
+             const messageData = JSON.parse(msg);
+             const id = messageIndex++;
+             for (const recipient of sockets) {
+               recipient.send(JSON.stringify({ name: messageData.name, userId: messageData.userId, content: messageData.content, timestamp: messageData.timestamp }));
+             }
+           } catch (err) {
+             console.error("Error parsing message data:", err);
+             socket.send(JSON.stringify({ error: "Invalid message data" }));
+           }
+         });
+      });
+     });
   })
   .catch((err) => {
     console.error("Failed to connect to MongoDB", err);

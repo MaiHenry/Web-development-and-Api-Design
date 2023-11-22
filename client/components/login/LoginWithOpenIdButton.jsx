@@ -49,7 +49,7 @@ export function LoginWithOpenIdButton() {
     );
   }
 
-  // Load authorization URLs when component mounts
+  // Load authorization URLs when component mount
   useEffect(() => {
     loadGoogleAuthorizationUrl();
     loadMicrosoftAuthorizationUrl();

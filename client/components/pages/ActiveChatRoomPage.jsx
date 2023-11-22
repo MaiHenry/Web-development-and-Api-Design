@@ -27,6 +27,7 @@ export function ActiveChatRoomPage() {
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const [webSocket, setWebSocket] = useState();
 
   useEffect(() => {
     setIsLoading(true);
@@ -44,15 +45,25 @@ export function ActiveChatRoomPage() {
         setError(err.message);
         setIsLoading(false);
       });
+      const webSocket = new WebSocket("ws://" + window.location.host);
+      webSocket.onmessage = (event) => {
+        console.log(event.data);
+        setMessages((current) => [...current, JSON.parse(event.data)]);
+      };
+      setWebSocket(webSocket);
   }, [roomId, fetchChatRoomById, fetchMessages]);
 
   const handleSendMessage = () => {
+    const timestamp = new Date().toISOString();
     const messageData = {
       name: {profileName},
       userId: user?._id,
       content,
-      timestamp: new Date().toISOString(),
+      timestamp,
     };
+
+    webSocket.send(JSON.stringify(messageData));
+
 
     postMessage(roomId, messageData)
       .then(() => {
