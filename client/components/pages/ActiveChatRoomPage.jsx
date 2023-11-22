@@ -45,7 +45,7 @@ export function ActiveChatRoomPage() {
         setError(err.message);
         setIsLoading(false);
       });
-      const webSocket = new WebSocket("ws://" + window.location.host);
+      const webSocket = new WebSocket(process.env.WEBSOCKET + window.location.host);
       webSocket.onmessage = (event) => {
         console.log(event.data);
         setMessages((current) => [...current, JSON.parse(event.data)]);
