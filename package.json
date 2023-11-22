@@ -12,5 +12,8 @@
     "build": "npm run build:client",
     "build:client": "cd client && npm run build",
     "start": "cd server && npm start"
+  },
+  "dependencies": {
+    "ws": "^8.14.2"
   }
 }

@@ -74,12 +74,13 @@ mongoClient
       }
     });
 
-    
+    // WS
     const wsServer = new WebSocketServer({ noServer: true });
 
     // Keep a list of all incomings connections
     const sockets = [];
     let messageIndex = 0;
+
     // Start express app
     const server = app.listen(process.env.PORT || 3000);
 
