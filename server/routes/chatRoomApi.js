@@ -64,13 +64,23 @@ export function ChatRoomApi(db) {
   // Update room
   router.put("/:id", async (req, res) => {
     const { id } = req.params;
-    const updateData = req.body;
+    const { userId, ...updateData } = req.body;
 
     try {
+      const room = await collection.findOne({ _id: new ObjectId(id) });
+      if (!room) {
+        return res.status(404).send("No room found");
+      }
+
+      if (room.userId !== userId) {
+        return res.status(403).send("Only creator can edit");
+      }
+
       const result = await collection.updateOne(
         { _id: new ObjectId(id) },
         { $set: updateData }
       );
+
       if (result.matchedCount === 0) {
         return res.status(404).send("No room found with this id");
       }
@@ -100,7 +110,7 @@ export function ChatRoomApi(db) {
   // Add a new message to a specific room
   router.post("/:roomId/messages", async (req, res) => {
     const { roomId } = req.params;
-    const { name, userId, content, } = req.body;
+    const { name, userId, content } = req.body;
 
     try {
       const newMessage = {

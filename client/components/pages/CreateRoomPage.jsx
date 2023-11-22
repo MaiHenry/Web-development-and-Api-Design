@@ -35,7 +35,7 @@ export function CreateRoomPage() {
   }
 
   return (
-    <form className="object-form" onSubmit={handleSubmit}>
+    <form className="profile-form" onSubmit={handleSubmit}>
       <h2>Create a Chat Room</h2>
 
       <div>
