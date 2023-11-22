@@ -69,6 +69,21 @@ export function LoginApi(db) {
     }
   });
 
+  // Endpoint for users, using "email" from the first endpoint
+  router.get("/user/:email", async (req, res) => {
+    const { email } = req.params;
+    try {
+      const user = await db.collection("users").findOne({ email: email });
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+      res.json(user);
+    } catch (error) {
+      console.error("Error fetching user from database:", error);
+      res.status(500).json({ error: "Server Error" });
+    }
+  });
+
   // Combined route for clearing cookies / log out
   router.delete("/", (req, res) => {
     res.clearCookie("google_access_token");

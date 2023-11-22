@@ -5,7 +5,7 @@ import '../../Styles.css';
 
 export function ProfilePage() {
   const navigate = useNavigate();
-  const { user, profileName, unloadUser } = useContext(LoginContext);
+  const { user, profileName, unloadUser, customName, customBio } = useContext(LoginContext);
 
   async function handleSubmitLogout(e) {
     e.preventDefault();
@@ -36,6 +36,8 @@ export function ProfilePage() {
         )}
         <p><strong>Name:</strong> {profileName}</p>
         <p><strong>Address:</strong> {user.email}</p>
+        <p><strong>Custom Name:</strong> {customName || ''}</p>
+        <p><strong>Custom Bio:</strong> {customBio || ''}</p>
       </div>
   
       <form onSubmit={handleSubmitLogout} className="logout-form">

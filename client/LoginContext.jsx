@@ -6,6 +6,8 @@ export const LoginContext = React.createContext({
   profileName: undefined,
   applicationConfig: undefined,
   loginMethod: undefined,
+  customName: undefined,
+  customBio: undefined,
   loadUser: () => {},
   unloadUser: () => {},
 });
@@ -15,6 +17,9 @@ export const LoginProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
   const [profileName, setProfileName] = useState(undefined);
   const [loginMethod, setLoginMethod] = useState(undefined);
+  const [customName, setCustomName] = useState(undefined);
+  const [customBio, setCustomBio] = useState(undefined);
+
 
   // Configuration for different auth.
   const applicationConfig = {
@@ -37,23 +42,36 @@ export const LoginProvider = ({ children }) => {
         setUser({ direct: { _id: userId, username } });
         setProfileName(username);
       } else {
-        // If user data is not in SS, fetch from API
         const response = await fetch("/api/login");
         if (!response.ok) {
           throw new Error("Failed to fetch user " + response.statusText);
         }
         const userData = await response.json();
 
+        let userEmail;
         if (userData.user.google) {
-          setUser(userData.user.google); // Google users
+          userEmail = userData.user.google.email;
+          setUser(userData.user.google); // Set user data for Google users
           setProfileName(userData.user.google.name);
-          setLoginMethod('google');
+          setLoginMethod("google");
         } else if (userData.user.microsoft) {
-          // Micrsoft users
-          setUser(userData.user.microsoft);
+          userEmail = userData.user.microsoft.email;
+          setUser(userData.user.microsoft); // Set user data for Microsoft users
           setProfileName(userData.user.microsoft.name);
-          setLoginMethod('microsoft');
-        } 
+          setLoginMethod("microsoft");
+        }
+
+        if (userEmail) {
+          const dbResponse = await fetch(`/api/login/user/${userEmail}`);
+          if (!dbResponse.ok) {
+            throw new Error(
+              "Failed to fetch user data from db: " + dbResponse.statusText
+            );
+          }
+          const dbUserData = await dbResponse.json();
+          setCustomName(dbUserData.customName);
+          setCustomBio(dbUserData.customBio);
+        }
       }
     } catch (error) {
       console.error("Error loading user:", error);
@@ -83,6 +101,8 @@ export const LoginProvider = ({ children }) => {
         applicationConfig,
         loadUser,
         unloadUser,
+        customBio,
+        customName,
       }}
     >
       {children}
