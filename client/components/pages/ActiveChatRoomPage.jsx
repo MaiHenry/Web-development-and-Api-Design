@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ApiContext } from "../../ApiContext";
 import { LoginContext } from "../../LoginContext";
+import { fetchJSON
+ } from "../apiRequests/fetchJSON";
 import "../../Styles.css";
 
 function MessageCard({ message }) {
@@ -10,7 +12,7 @@ function MessageCard({ message }) {
     <div className="message-card">
       <span className="timestamp">{timestamp}</span>
       <p>
-      <strong>{message.name?.profileName}</strong>
+        <strong>{message.name?.profileName}</strong>
       </p>
       <p>{message.content}</p>
     </div>
@@ -29,9 +31,11 @@ export function ActiveChatRoomPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const [webSocket, setWebSocket] = useState();
+  const [customName, setCustomName] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
+
     fetchChatRoomById(roomId)
       .then((room) => {
         setRoomDetails(room);
@@ -46,7 +50,29 @@ export function ActiveChatRoomPage() {
         setError(err.message);
         setIsLoading(false);
       });
-      const webSocket = new WebSocket(window.location.origin.replace(/^http/, "ws"));
+
+    async function fetchUserData(userEmail) {
+      try {
+        const userData = await fetchJSON(`/api/login/user/${userEmail}`);
+        return userData;
+      } catch (error) {
+        throw new Error(`Failed to fetch user data: ${error.message}`);
+      }
+    }
+    fetchUserData(user.email)
+      .then((data) => {
+        console.log(data);
+        setCustomName(data.customName);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setIsLoading(false);
+      });
+
+    const webSocket = new WebSocket(
+      window.location.origin.replace(/^http/, "ws")
+    );
 
     webSocket.onmessage = (event) => {
       console.log(event.data);
@@ -56,7 +82,7 @@ export function ActiveChatRoomPage() {
   }, [roomId, fetchChatRoomById, fetchMessages]);
 
   const handleSendMessage = () => {
-    const senderName = user.customName || profileName;
+    const senderName = customName || profileName;
     const timestamp = new Date().toISOString();
     const messageData = {
       name: { profileName: senderName },
