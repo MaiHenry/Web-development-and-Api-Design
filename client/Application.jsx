@@ -15,6 +15,7 @@ import { ChatRoomPage } from "./components/pages/ChatRoomPage";
 import { CreateRoomPage } from "./components/pages/CreateRoomPage";
 import { EditChatRoomPage } from "./components/pages/EditChatRoomPage";
 import { ActiveChatRoomPage } from "./components/pages/ActiveChatRoomPage";
+import { UserInfoPage } from "./components/pages/UserInfoPage";
 
 export function Application() {
   const applicationConfig = {
@@ -47,6 +48,7 @@ export function Application() {
             <Route path="/edit/:chatRoomId" element={<ProtectedRoutes><EditChatRoomPage /> </ ProtectedRoutes>} />
             <Route path="/chatroom/:roomId" element={<ProtectedRoutes><ActiveChatRoomPage /></ProtectedRoutes>} /> 
             <Route path="/people" element={<ProtectedRoutes><UsersPage /></ProtectedRoutes>} /> 
+            <Route path="/login/:id" element={<ProtectedRoutes><UserInfoPage /> </ ProtectedRoutes>} />
             <Route path="*" element={<h2>Not Found</h2>} />
           </Routes>
         </main>

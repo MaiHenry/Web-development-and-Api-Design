@@ -65,7 +65,6 @@ export const LoginProvider = ({ children }) => {
           const dbResponse = await fetch(`/api/login/user/${userEmail}`);
           if (!dbResponse.ok) {
             throw new Error(
-              "Failed to fetch user data from db: " + dbResponse.statusText
             );
           }
           const dbUserData = await dbResponse.json();

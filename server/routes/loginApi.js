@@ -1,5 +1,6 @@
 import express from "express";
 import { googleConfig, microsoftConfig, fetchUser } from "../config.js";
+import { ObjectId } from "mongodb";
 
 // Create an Express router to handle auth routes
 export function LoginApi(db) {
@@ -85,6 +86,22 @@ export function LoginApi(db) {
     const { email } = req.params;
     try {
       const user = await db.collection("users").findOne({ email: email });
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+      res.json(user);
+    } catch (error) {
+      console.error("Error fetching user from database:", error);
+      res.status(500).json({ error: "Server Error" });
+    }
+  });
+
+   // Endpoint for users, after they've registered
+   router.get("/:id", async (req, res) => {
+    try {
+      const user = await db.collection("users").findOne({ 
+        _id: new ObjectId(req.params.id),
+      });
       if (!user) {
         return res.status(404).json({ error: "User not found" });
       }

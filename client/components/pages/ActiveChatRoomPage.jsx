@@ -6,11 +6,13 @@ import "../../Styles.css";
 
 function MessageCard({ message }) {
   const timestamp = new Date(message.timestamp).toLocaleString();
+  const { customName } = useContext(LoginContext);
+  const displayName = customName || message.name?.profileName
   return (
     <div className="message-card">
       <span className="timestamp">{timestamp}</span>
       <p>
-        <strong>{message.name?.profileName}</strong>
+        <strong>{displayName}</strong>
       </p>
       <p>{message.content}</p>
     </div>

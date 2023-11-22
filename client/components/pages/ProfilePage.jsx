@@ -6,8 +6,7 @@ import "../../Styles.css";
 
 export function ProfilePage() {
   const navigate = useNavigate();
-  const { user, profileName, unloadUser, customName, customBio, loadUser } =
-    useContext(LoginContext);
+  const { user, profileName, unloadUser, customName, customBio, loadUser } = useContext(LoginContext);
   const [newCustomName, setNewCustomName] = useState(customName);
   const [newCustomBio, setNewCustomBio] = useState(customBio);
 
@@ -82,6 +81,7 @@ export function ProfilePage() {
           </div>
           <div>
             <textarea
+              rows="5"
               value={newCustomBio}
               onChange={(e) => setNewCustomBio(e.target.value)}
               placeholder="Custom Bio"
