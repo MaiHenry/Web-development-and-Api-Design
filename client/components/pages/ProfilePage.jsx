@@ -10,6 +10,7 @@ export function ProfilePage() {
     useContext(LoginContext);
   const [newCustomName, setNewCustomName] = useState(customName);
   const [newCustomBio, setNewCustomBio] = useState(customBio);
+  const [updateSuccess, setUpdateSuccess] = useState(false);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -23,6 +24,7 @@ export function ProfilePage() {
         newCustomName: newCustomName,
       });
 
+      setUpdateSuccess(true);
       setNewCustomName(newCustomName);
       setNewCustomBio(newCustomBio);
     } catch (error) {
@@ -97,6 +99,8 @@ export function ProfilePage() {
             />
           </div>
           <button type="submit">Update Profile</button>
+          {updateSuccess && <p>Your changes was successful!</p>}
+          <div className="spacer"></div>
         </form>
       </div>
 
