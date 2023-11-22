@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ApiContext } from "../../ApiContext";
+import { LoginContext } from "../../LoginContext";
 
 export function EditChatRoomPage() {
   const { fetchChatRoomById, updateChatRoom } = useContext(ApiContext);
+  const { user } = useContext(LoginContext);
   const navigate = useNavigate();
   const { chatRoomId } = useParams();
 
@@ -26,7 +28,7 @@ export function EditChatRoomPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await updateChatRoom(chatRoomId, { name, description });
+      await updateChatRoom(chatRoomId, { name, description, userEmail: user.email });
       navigate('/');
     } catch (error) {
       console.error('Error updating room:', error);

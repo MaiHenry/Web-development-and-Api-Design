@@ -32,14 +32,14 @@ export function ChatRoomApi(db) {
 
   // Add a new room
   router.post("/add", async (req, res) => {
-    const { name, description, userId } = req.body;
+    const { name, description, userEmail } = req.body;
     try {
       const existingChatRoom = await collection.findOne({ name });
       if (existingChatRoom) {
         return res.status(400).send("A room with this name already exists");
       }
 
-      await collection.insertOne({ name, description, userId });
+      await collection.insertOne({ name, description, userEmail });
       res.status(201).json({ message: "Room added successfully" });
     } catch (err) {
       res.status(500).send("Error adding room");
@@ -64,7 +64,7 @@ export function ChatRoomApi(db) {
   // Update room
   router.put("/:id", async (req, res) => {
     const { id } = req.params;
-    const { userId, ...updateData } = req.body;
+    const { userEmail, ...updateData } = req.body;
 
     try {
       const room = await collection.findOne({ _id: new ObjectId(id) });
@@ -72,7 +72,7 @@ export function ChatRoomApi(db) {
         return res.status(404).send("No room found");
       }
 
-      if (room.userId !== userId) {
+      if (room.userEmail !== userEmail) {
         return res.status(403).send("Only creator can edit");
       }
 

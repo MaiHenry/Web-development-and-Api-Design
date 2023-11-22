@@ -20,7 +20,7 @@ export function CreateRoomPage() {
     const roomData = {
       name,
       description,
-      userId: user && user._id, // Room connected to logged in user.
+      userEmail: user.email, // Room connected to logged in user.
     };
 
     createRoom(roomData)
@@ -29,13 +29,13 @@ export function CreateRoomPage() {
         navigate("/");
       })
       .catch((error) => {
-        setErrorMessage("Could not add the room or room already exist.");
+        setErrorMessage("Could not add the room.");
         console.error("Error adding room", error);
       });
   }
 
   return (
-    <form className="profile-form" onSubmit={handleSubmit}>
+    <form className="object-form" onSubmit={handleSubmit}>
       <h2>Create a Chat Room</h2>
 
       <div>

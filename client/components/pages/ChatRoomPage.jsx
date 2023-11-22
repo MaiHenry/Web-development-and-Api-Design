@@ -4,18 +4,24 @@ import { ApiContext } from "../../ApiContext";
 import { LoginContext } from "../../LoginContext";
 
 function ChatRoomCard({ room, onDelete, onEdit, onEnterRoom }) {
-  const { loginMethod } = useContext(LoginContext);
+  const { user } = useContext(LoginContext);
+
+  let roomSettings = null;
+  if (user && user.email === room.userEmail) {
+    roomSettings = (
+      <>
+        <button onClick={() => onEdit(room._id)}>Edit</button>
+        <button onClick={() => onDelete(room._id)}>Delete</button>
+      </>
+    );
+  }
+
   return (
     <div>
       <h3>{room.name}</h3>
       <p>{room.description}</p>
       <button onClick={() => onEnterRoom(room._id)}>Enter Room</button>
-      {loginMethod === "microsoft" && (
-        <>
-          <button onClick={() => onEdit(room._id)}>Edit</button>
-          <button onClick={() => onDelete(room._id)}>Delete</button>
-        </>
-      )}
+      {roomSettings}
     </div>
   );
 }
