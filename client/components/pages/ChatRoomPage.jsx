@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ApiContext } from "../../ApiContext";
 import { LoginContext } from "../../LoginContext";
 
-function ChatRoomCard({ room, onDelete, onEdit, onEnterRoom }) {
+export function ChatRoomCard({ room, onDelete, onEdit, onEnterRoom }) {
   const { user } = useContext(LoginContext);
 
   let roomSettings = null;
