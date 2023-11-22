@@ -105,6 +105,30 @@ nav {
     font-size: 1em;
   }
 
+  .profile-form {
+    width: 40%;
+  }
+  
+  .profile-form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+  }
+  
+  .profile-form label {
+    font-weight: 600;
+    margin-bottom: 0.5em;
+  }
+  
+  .profile-form input,
+  .profile-form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+
+
 
 /* Some nice design tools */
 
@@ -156,3 +180,4 @@ nav {
     padding: 5px 10px;
     margin: 5px 10px 10px 0;
 }
+

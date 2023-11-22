@@ -84,6 +84,32 @@ export function LoginApi(db) {
     }
   });
 
+  // Update custom name and bio
+  router.put("/user/update/:email", async (req, res) => {
+    const { email } = req.params;
+    const { customName, customBio } = req.body;
+  
+    try {
+      const updateResult = await db.collection("users").updateOne(
+        { email: email },
+        { $set: { customName: customName, customBio: customBio } }
+      );
+  
+      if (updateResult.matchedCount === 0) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      if (updateResult.modifiedCount === 0) {
+        return res.status(200).json({ message: "No changes made" });
+      }
+  
+      res.json({ message: "User updated!" });
+    } catch (error) {
+      console.error("Error updating :", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
+
   // Combined route for clearing cookies / log out
   router.delete("/", (req, res) => {
     res.clearCookie("google_access_token");

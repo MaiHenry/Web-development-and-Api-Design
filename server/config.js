@@ -49,7 +49,6 @@ async function fetchJSON(url, options) {
     if (userinfo.ok) {
       return await userinfo.json();
     } else {
-      console.log(`Failed to fetch user info: ${userinfo.status}`);
       return undefined;
     }
   }
