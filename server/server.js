@@ -24,7 +24,7 @@ mongoClient
   .then(() => {
     console.log("Connected to MongoDB");
     db = mongoClient.db("webutvikling");
-    app.use("/api/login", LoginApi());
+    app.use("/api/login", LoginApi(db));
     app.use("/api/chatroom", ChatRoomApi(db));
 
     // Ouath config Routes

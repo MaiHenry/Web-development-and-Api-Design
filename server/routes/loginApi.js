@@ -33,11 +33,40 @@ export function LoginApi(db) {
   });
 
   // Endpoint to store access tokens
-  router.post("/:provider", (req, res) => {
+  router.post("/:provider", async (req, res) => {
     const { provider } = req.params;
     const { access_token } = req.body;
-    res.cookie(`${provider}_access_token`, access_token, { signed: true });
-    res.sendStatus(200);
+    try {
+      let config;
+      if (provider === "google") {
+        config = await googleConfig();
+      } else if (provider === "microsoft") {
+        config = await microsoftConfig();
+      } else {
+        throw new Error("no provider");
+      }
+      const userProfile = await fetchUser(access_token, config);
+      const { name, email } = userProfile;
+      let user = await db.collection("users").findOne({ email: email });
+
+      if (!user) {
+        const newUser = {
+          provider,
+          name,
+          email,
+          customName: "",
+          customBio: "",
+        };
+        const result = await db.collection("users").insertOne(newUser);
+        user = await db.collection("users").findOne({ _id: result.insertedId });
+      }
+
+      res.cookie(`${provider}_access_token`, access_token, { signed: true });
+      res.status(200).json(user);
+    } catch (error) {
+      console.error("Error in user login:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
   });
 
   // Combined route for clearing cookies / log out
