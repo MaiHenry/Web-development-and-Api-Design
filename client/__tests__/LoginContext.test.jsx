@@ -15,7 +15,7 @@ const TestingTheBestComponent = () => {
 };
 
 describe('LoginProvider', () => {
-  it('renders with initial context values', () => {
+  it('renders with initial context', () => {
     const component = renderer.create(
       <LoginProvider>
         <TestingTheBestComponent />
