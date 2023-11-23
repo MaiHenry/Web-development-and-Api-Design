@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "@babel/preset-env": "^7.23.3",
+    "@types/jest": "^29.5.10",
     "babel-jest": "^29.7.0",
     "concurrently": "^8.2.2",
     "jest": "^29.7.0",
@@ -14,7 +15,7 @@
     "postinstall": "npm run install:client && npm run install:server",
     "install:client": "cd client && npm install --include=dev",
     "install:server": "cd server && npm install --include=dev",
-    "build": "npm run build:client",
+    "build": "npm run check && npm run build:client",
     "build:client": "cd client && npm run build",
     "start": "cd server && npm start",
     "check": "npm run check:prettier && npm test",

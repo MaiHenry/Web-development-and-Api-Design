@@ -13,7 +13,7 @@ describe('fetchJSON function', () => {
       ok: true,
       json: () => Promise.resolve(testData),
     });
-    const response = await fetchJSON('http://example.com/data');
+    const response = await fetchJSON('http://chatroom.com/data');
     expect(response).toEqual(testData);
   });
 });

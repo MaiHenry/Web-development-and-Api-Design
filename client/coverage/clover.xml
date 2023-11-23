@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700714487321" clover="3.2.0">
-  <project timestamp="1700714487322" name="All files">
+<coverage generated="1700717789651" clover="3.2.0">
+  <project timestamp="1700717789651" name="All files">
     <metrics statements="186" coveredstatements="83" conditionals="62" coveredconditionals="25" methods="57" coveredmethods="17" elements="305" coveredelements="125" complexity="0" loc="186" ncloc="186" packages="4" files="13" classes="13"/>
     <package name="client">
       <metrics statements="51" coveredstatements="14" conditionals="14" coveredconditionals="0" methods="13" coveredmethods="2"/>
@@ -167,13 +167,13 @@
       </file>
       <file name="CreateRoomPage.jsx" path="C:\Users\maihe\OneDrive\Skrivebord\pg6301\pg6301eksamen-MaiHenry\client\components\pages\CreateRoomPage.jsx">
         <metrics statements="17" coveredstatements="8" conditionals="6" coveredconditionals="2" methods="6" coveredmethods="1"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
@@ -181,7 +181,7 @@
         <line num="29" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
       </file>

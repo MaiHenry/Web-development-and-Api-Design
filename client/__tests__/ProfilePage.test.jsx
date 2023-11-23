@@ -1,11 +1,11 @@
 import React from "react";
-import renderer, { act } from "react-test-renderer";
+import renderer from "react-test-renderer";
 import { ProfilePage } from "../components/pages/ProfilePage";
 import { LoginContext } from "../LoginContext";
 import { MemoryRouter } from "react-router-dom";
 
 describe("ProfilePage", () => {
-  it("page", () => {
+  it("renders with mock context", () => {
     const mockContext = {
       user: { email: "user@Nordmannen.com", picture: null },
       profileName: "Ola Nordmann",
@@ -26,14 +26,14 @@ describe("ProfilePage", () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 
-  // test sessionstorage
-  it("page", () => {
+  // Test session storage
+  it("stores data in session storage", () => {
     const sessionStorageMock = {
       getItem: jest.fn(),
       setItem: jest.fn(),
       clear: jest.fn(),
     };
-    global.sessionStorage = sessionStorageMock; 
+    global.sessionStorage = sessionStorageMock;
 
     const mockContext = {
       user: { email: "user@Nordmannen.com", picture: null },

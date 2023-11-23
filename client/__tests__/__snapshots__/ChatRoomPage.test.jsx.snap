@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CreateRoomPage renders correctly 1`] = `
+<form
+  className="object-form"
+  onSubmit={[Function]}
+>
+  <h2>
+    Create a Chat Room
+  </h2>
+  <div>
+    <label>
+      Name:
+    </label>
+    <input
+      id="roomName"
+      onChange={[Function]}
+      required={true}
+      value=""
+    />
+  </div>
+  <div>
+    <label>
+      Description:
+    </label>
+    <textarea
+      id="roomDescription"
+      onChange={[Function]}
+      required={true}
+      value=""
+    />
+  </div>
+  <div
+    className="line"
+  />
+  <button
+    id="roomButton"
+    type="submit"
+  >
+    Create Room
+  </button>
+</form>
+`;
+
 exports[`render ChatRoomPage 1`] = `
 <div>
   Error: 

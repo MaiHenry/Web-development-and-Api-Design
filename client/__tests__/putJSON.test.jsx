@@ -13,7 +13,7 @@ describe('putJSON function', () => {
       ok: true,
       json: () => Promise.resolve(mockData),
     });
-    const response = await putJSON('http://example.com/put', { data: 'update data' });
+    const response = await putJSON('http://chatroom.com/put', { data: 'update data' });
     expect(response).toEqual(mockData);
   });
 });

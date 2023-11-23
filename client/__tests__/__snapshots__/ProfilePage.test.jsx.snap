@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProfilePage page 1`] = `
+exports[`ProfilePage renders with mock context 1`] = `
 <div
   className="profile-container"
 >
@@ -102,7 +102,7 @@ exports[`ProfilePage page 1`] = `
 </div>
 `;
 
-exports[`ProfilePage page 2`] = `
+exports[`ProfilePage stores data in session storage 1`] = `
 <div
   className="profile-container"
 >

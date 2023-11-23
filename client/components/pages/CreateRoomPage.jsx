@@ -41,6 +41,7 @@ export function CreateRoomPage() {
       <div>
         <label>Name:</label>
         <input
+          id="roomName"
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -50,13 +51,14 @@ export function CreateRoomPage() {
       <div>
         <label>Description:</label>
         <textarea
+          id="roomDescription"
           required
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
       <div className="line"></div>
-      <button type="submit">Create Room</button>
+      <button type="submit" id="roomButton">Create Room</button>
       {successMessage && <div>{successMessage}</div>}
       {errorMessage && <div>{errorMessage}</div>}
     </form>

@@ -148,6 +148,7 @@ exports[`render CreateRoomPage 1`] = `
       Name:
     </label>
     <input
+      id="roomName"
       onChange={[Function]}
       required={true}
       value=""
@@ -158,6 +159,7 @@ exports[`render CreateRoomPage 1`] = `
       Description:
     </label>
     <textarea
+      id="roomDescription"
       onChange={[Function]}
       required={true}
       value=""
@@ -167,6 +169,7 @@ exports[`render CreateRoomPage 1`] = `
     className="line"
   />
   <button
+    id="roomButton"
     type="submit"
   >
     Create Room
