@@ -6,7 +6,7 @@ exports[`matches snapshot 1`] = `
     Test chatRoom
   </h3>
   <p>
-    Test description
+    Test this
   </p>
   <button
     onClick={[Function]}

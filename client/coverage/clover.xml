@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700709245412" clover="3.2.0">
-  <project timestamp="1700709245412" name="All files">
-    <metrics statements="170" coveredstatements="63" conditionals="56" coveredconditionals="21" methods="54" coveredmethods="14" elements="280" coveredelements="98" complexity="0" loc="170" ncloc="170" packages="3" files="11" classes="11"/>
+<coverage generated="1700709753639" clover="3.2.0">
+  <project timestamp="1700709753639" name="All files">
+    <metrics statements="170" coveredstatements="73" conditionals="56" coveredconditionals="21" methods="54" coveredmethods="15" elements="280" coveredelements="109" complexity="0" loc="170" ncloc="170" packages="3" files="11" classes="11"/>
     <package name="client">
-      <metrics statements="51" coveredstatements="4" conditionals="14" coveredconditionals="0" methods="13" coveredmethods="1"/>
+      <metrics statements="51" coveredstatements="14" conditionals="14" coveredconditionals="0" methods="13" coveredmethods="2"/>
       <file name="ApiContext.jsx" path="C:\Users\maihe\OneDrive\Skrivebord\pg6301\pg6301eksamen-MaiHenry\client\ApiContext.jsx">
         <metrics statements="8" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1"/>
         <line num="7" count="4" type="stmt"/>
@@ -16,16 +16,16 @@
         <line num="30" count="0" type="stmt"/>
       </file>
       <file name="LoginContext.jsx" path="C:\Users\maihe\OneDrive\Skrivebord\pg6301\pg6301eksamen-MaiHenry\client\LoginContext.jsx">
-        <metrics statements="43" coveredstatements="2" conditionals="14" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
+        <metrics statements="43" coveredstatements="12" conditionals="14" coveredconditionals="0" methods="6" coveredmethods="1"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
@@ -54,12 +54,12 @@
         <line num="69" count="0" type="stmt"/>
         <line num="70" count="0" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
         <line num="80" count="0" type="stmt"/>
         <line num="81" count="0" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
       </file>
     </package>
     <package name="client.components.apiRequests">

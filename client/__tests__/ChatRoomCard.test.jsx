@@ -6,8 +6,8 @@ it("matches snapshot", () => {
   const room = {
     _id: "123456789",
     name: "Test chatRoom",
-    description: "Test description",
-    userEmail: "test@test.com",
+    description: "Test this",
+    userEmail: "bola@ola.com",
   };
 
   const component = renderer.create(<ChatRoomCard room={room} />);

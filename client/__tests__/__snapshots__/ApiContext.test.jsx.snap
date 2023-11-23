@@ -1,15 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApiContext TestComponent renders with context 1`] = `
-<div>
-  <button
-    onClick={[MockFunction]}
-  >
-    Fetch some nice Rooms
-  </button>
-</div>
-`;
-
 exports[`ApiContext TestingComponent W/ context 1`] = `
 <div>
   <button

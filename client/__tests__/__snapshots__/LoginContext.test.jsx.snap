@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginProvider renders with initial context values 1`] = `
+<div>
+  <p>
+    User: 
+    No user
+  </p>
+  <p>
+    Profile Name: 
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Load User
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Unload User
+  </button>
+</div>
+`;
