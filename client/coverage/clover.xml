@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700717789651" clover="3.2.0">
-  <project timestamp="1700717789651" name="All files">
+<coverage generated="1700719281128" clover="3.2.0">
+  <project timestamp="1700719281128" name="All files">
     <metrics statements="186" coveredstatements="83" conditionals="62" coveredconditionals="25" methods="57" coveredmethods="17" elements="305" coveredelements="125" complexity="0" loc="186" ncloc="186" packages="4" files="13" classes="13"/>
     <package name="client">
       <metrics statements="51" coveredstatements="14" conditionals="14" coveredconditionals="0" methods="13" coveredmethods="2"/>
@@ -182,8 +182,8 @@
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="37" count="2" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
       </file>
       <file name="EditChatRoomPage.jsx" path="C:\Users\maihe\OneDrive\Skrivebord\pg6301\pg6301eksamen-MaiHenry\client\components\pages\EditChatRoomPage.jsx">
         <metrics statements="21" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="2"/>
