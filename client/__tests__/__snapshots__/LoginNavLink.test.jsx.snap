@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginNavLink renders when user logged in 1`] = `
+<nav>
+  <a
+    className="navbar-link"
+    href="/"
+    onClick={[Function]}
+  >
+    Browse rooms
+  </a>
+  <a
+    className="navbar-link"
+    href="/people"
+    onClick={[Function]}
+  >
+    People
+  </a>
+  <a
+    className="navbar-link"
+    href="/About"
+    onClick={[Function]}
+  >
+    About
+  </a>
+  <a
+    className="navbar-link"
+    href="/profile"
+    onClick={[Function]}
+  >
+    My Profile
+  </a>
+</nav>
+`;

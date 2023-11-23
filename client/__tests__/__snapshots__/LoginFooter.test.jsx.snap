@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginFooter renders when user logged in 1`] = `
+<footer>
+  Logged in as:
+   
+  <a
+    className="footerLink"
+    href="/profile"
+    onClick={[Function]}
+  >
+    Ola
+  </a>
+  <p>
+    <button
+      className="footerButton"
+      onClick={[Function]}
+    >
+      Log out
+    </button>
+  </p>
+</footer>
+`;
+
+exports[`LoginFooter renders when user logged in 2`] = `
+<div>
+  Log in to explore features!
+</div>
+`;
