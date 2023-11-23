@@ -101,3 +101,105 @@ exports[`ProfilePage page 1`] = `
   </form>
 </div>
 `;
+
+exports[`ProfilePage page 2`] = `
+<div
+  className="profile-container"
+>
+  <h2>
+    Profile Page
+  </h2>
+  <div
+    className="line"
+  />
+  <div
+    className="profile-info"
+  >
+    <p>
+      Welcome! 
+      <br />
+    </p>
+    <p>
+      <strong>
+        Name:
+      </strong>
+       
+      Ola Nordmann
+    </p>
+    <p>
+      <strong>
+        Address:
+      </strong>
+       
+      user@Nordmannen.com
+    </p>
+    <p>
+      <strong>
+        Custom Name:
+      </strong>
+       
+      Test
+    </p>
+    <p>
+      <strong>
+        Custom Bio:
+      </strong>
+       
+      A bio
+    </p>
+    <div
+      className="spacer"
+    />
+    <div
+      className="line"
+    />
+    <h3>
+      Update your custom name and bio!
+    </h3>
+    <p>
+      Changes will affect your past, present and future name
+    </p>
+    <div
+      className="spacer"
+    />
+    <form
+      className="profile-form"
+      onSubmit={[Function]}
+    >
+      <div>
+        <input
+          onChange={[Function]}
+          placeholder="Custom Name"
+          required={true}
+          type="text"
+          value="Test"
+        />
+      </div>
+      <div>
+        <textarea
+          onChange={[Function]}
+          placeholder="Custom Bio"
+          rows="5"
+          value="A bio"
+        />
+      </div>
+      <button
+        type="submit"
+      >
+        Update Profile
+      </button>
+      <div
+        className="spacer"
+      />
+    </form>
+  </div>
+  <form
+    className="logout-form"
+    onSubmit={[Function]}
+  >
+    <button>
+      Log out
+    </button>
+  </form>
+</div>
+`;

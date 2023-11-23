@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginProvider renders with initial context values 1`] = `
+exports[`LoginProvider renders with initial context 1`] = `
 <div>
   <p>
     User: 
