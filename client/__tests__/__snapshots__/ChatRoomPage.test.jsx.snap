@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render ChatRoomPage 1`] = `
+<div>
+  Error: 
+  Failed to parse URL from /api/chatroom
+</div>
+`;
