@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function UserCard({ user, onInspect }) {
+export function UserCard({ user, onInspect }) {
   let bioText = user.customBio || "";
   if (bioText.length > 80) {
     bioText = bioText.slice(0, 77) + "...";

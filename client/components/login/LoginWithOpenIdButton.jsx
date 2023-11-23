@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import googleLogo from "../images/google_logo.png";
-import microsoftLogo from "../images/microsoftlogin.png";
 import { fetchJSON } from "../apiRequests/fetchJSON.jsx";
 import "../../Styles.css";
 
@@ -59,22 +57,22 @@ export function LoginWithOpenIdButton() {
     <div>
       <div>
         <a href={googleAuthUrl}>
-          <img
-            className="googlelogo"
-            src={googleLogo}
+          <button
             alt="Google login"
             style={{ width: "200px" }}
-          />
+          >
+            Google Login
+          </button>
         </a>
       </div>
       <div>
         <a href={microsoftAuthUrl}>
-          <img
-            className="microsoftlogo"
-            src={microsoftLogo}
+          <button
             alt="Microsoft login"
             style={{ width: "200px" }}
-          />
+          >
+            Microsoft Login
+          </button>
         </a>
       </div>
     </div>

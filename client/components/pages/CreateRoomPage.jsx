@@ -20,7 +20,7 @@ export function CreateRoomPage() {
     const roomData = {
       name,
       description,
-      userEmail: user.email, // Room connected to logged in user.
+      userId: user && user._id, // Room connected to logged in user.
     };
 
     createRoom(roomData)
@@ -37,7 +37,6 @@ export function CreateRoomPage() {
   return (
     <form className="object-form" onSubmit={handleSubmit}>
       <h2>Create a Chat Room</h2>
-      <div className="line"></div>
 
       <div>
         <label>Name:</label>
@@ -56,7 +55,7 @@ export function CreateRoomPage() {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <div className="spacer"></div>
+      <div className="line"></div>
       <button type="submit">Create Room</button>
       {successMessage && <div>{successMessage}</div>}
       {errorMessage && <div>{errorMessage}</div>}

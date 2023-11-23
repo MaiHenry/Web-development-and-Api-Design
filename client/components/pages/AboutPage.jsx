@@ -29,7 +29,7 @@ export function AboutPage() {
       <div className="feature">
         <h3>Creating Chatrooms</h3>
         <p>
-          Microsoft users has an extra benefit of creating chatrooms! Users can
+          Microsoft users have an extra benefit of creating chatrooms! Users can
           also edit and delete their own, and only, chatrooms.
         </p>
       </div>
@@ -60,13 +60,13 @@ export function AboutPage() {
       <div className="feature">
         <h3>Get to know our chatters!</h3>
         <p>
-          Chatroom is a social platform, get to know who's taking part of this
-          event! Navigate to the People tab and explore others like urself!
+          Chatroom is a social platform, get to know who's taking part of it! 
+          Navigate to the People tab and explore other contributors!
         </p>
       </div>
       <div className="spacer"></div>
       <div className="feature">
-        <h3>What happens if you suddenly hit F5?</h3>
+        <h3>What happens if you suddenly hit F5 or accidentally refresh?</h3>
         <p>Don't worry, you will still be logged in.</p>
       </div>
       <div className="spacer"></div>

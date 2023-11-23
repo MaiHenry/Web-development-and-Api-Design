@@ -1,0 +1,222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render AboutPage 1`] = `
+<div
+  className="about-page"
+>
+  <h2>
+    About Chatroom
+  </h2>
+  <div
+    className="line"
+  />
+  <p>
+    Welcome to Chatroom! Here's a brief of some the possible features in this Application. Just to get you started.
+  </p>
+  <div
+    className="spacer"
+  />
+  <div
+    className="feature"
+  >
+    <h3>
+      Secure platform
+    </h3>
+    <p>
+      All features are exclusively for users that are logged in. Anonymous users can't navigate further than login.
+    </p>
+  </div>
+  <div
+    className="spacer"
+  />
+  <div
+    className="feature"
+  >
+    <h3>
+      Login alternatives
+    </h3>
+    <p>
+      All users can log in with Google and Microsoft in a seamless fashion.
+    </p>
+  </div>
+  <div
+    className="spacer"
+  />
+  <div
+    className="feature"
+  >
+    <h3>
+      Creating Chatrooms
+    </h3>
+    <p>
+      Microsoft users have an extra benefit of creating chatrooms! Users can also edit and delete their own, and only, chatrooms.
+    </p>
+  </div>
+  <div
+    className="spacer"
+  />
+  <div
+    className="feature"
+  >
+    <h3>
+      Your own profile
+    </h3>
+    <p>
+      All users logged in will have their own user profile with information predefined from the OPEN/ENTRA ID. Custom name and biography are available if you want to display yourself in another fashion.
+    </p>
+  </div>
+  <div
+    className="spacer"
+  />
+  <div
+    className="feature"
+  >
+    <h3>
+      Chat endlessly in realtime
+    </h3>
+    <p>
+      All logged in users can join chatrooms and communicate with multiple users from different places, realtime! Displayed with either your profilename or custom name, with timestamps.
+    </p>
+  </div>
+  <div
+    className="spacer"
+  />
+  <div
+    className="feature"
+  >
+    <h3>
+      All chatrooms are unique
+    </h3>
+    <p>
+      We don't like redundancy, therefore - no duplicate chatrooms.
+    </p>
+  </div>
+  <div
+    className="spacer"
+  />
+  <div
+    className="feature"
+  >
+    <h3>
+      Get to know our chatters!
+    </h3>
+    <p>
+      Chatroom is a social platform, get to know who's taking part of it! Navigate to the People tab and explore other contributors!
+    </p>
+  </div>
+  <div
+    className="spacer"
+  />
+  <div
+    className="feature"
+  >
+    <h3>
+      What happens if you suddenly hit F5 or accidentally refresh?
+    </h3>
+    <p>
+      Don't worry, you will still be logged in.
+    </p>
+  </div>
+  <div
+    className="spacer"
+  />
+  <div
+    className="line"
+  />
+  <div
+    className="feature"
+  >
+    <h4>
+      At last, thank you for taking your time. 
+      <br />
+      Wish you a great experience.
+    </h4>
+  </div>
+</div>
+`;
+
+exports[`render ChatRoomPage 1`] = `
+<div>
+  Loading ...
+</div>
+`;
+
+exports[`render CreateRoomPage 1`] = `
+<form
+  className="object-form"
+  onSubmit={[Function]}
+>
+  <h2>
+    Create a Chat Room
+  </h2>
+  <div>
+    <label>
+      Name:
+    </label>
+    <input
+      onChange={[Function]}
+      required={true}
+      value=""
+    />
+  </div>
+  <div>
+    <label>
+      Description:
+    </label>
+    <textarea
+      onChange={[Function]}
+      required={true}
+      value=""
+    />
+  </div>
+  <div
+    className="line"
+  />
+  <button
+    type="submit"
+  >
+    Create Room
+  </button>
+</form>
+`;
+
+exports[`render EditChatRoomPage 1`] = `
+<form
+  className="object-form"
+  onSubmit={[Function]}
+>
+  <h2>
+    Edit Room
+  </h2>
+  <div>
+    <label>
+      Name:
+    </label>
+    <input
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div>
+    <label>
+      Description:
+    </label>
+    <textarea
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+  <button
+    type="submit"
+  >
+    Update Room
+  </button>
+</form>
+`;
+
+exports[`render ProfilePage 1`] = `
+<p>
+  Loading...
+</p>
+`;
