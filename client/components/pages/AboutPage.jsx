@@ -60,7 +60,7 @@ export function AboutPage() {
       <div className="feature">
         <h3>Get to know our chatters!</h3>
         <p>
-          Chatroom is a social platform, get to know who's taking part of it! 
+          Chatroom is a social platform, get to know who's taking part of it!
           Navigate to the People tab and explore other contributors!
         </p>
       </div>

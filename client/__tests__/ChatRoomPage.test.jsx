@@ -1,6 +1,6 @@
 import React from "react";
 import renderer, { act, create } from "react-test-renderer";
-import { MemoryRouter } from "react-router-dom"; 
+import { MemoryRouter } from "react-router-dom";
 import { ChatRoomPage } from "../components/pages/ChatRoomPage";
 import { ApiContext } from "../ApiContext";
 import { LoginContext } from "../LoginContext";
@@ -13,7 +13,7 @@ test("render ChatRoomPage", async () => {
     component = renderer.create(
       <MemoryRouter>
         <ChatRoomPage />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
   });
 
@@ -22,20 +22,20 @@ test("render ChatRoomPage", async () => {
 });
 
 describe("CreateRoomPage", () => {
-    it("renders correctly", () => {
-      const createRoom = jest.fn();
-      const user = { _id: "user123" };
-  
-      const component = create(
-        <MemoryRouter>
+  it("renders correctly", () => {
+    const createRoom = jest.fn();
+    const user = { _id: "user123" };
+
+    const component = create(
+      <MemoryRouter>
         <ApiContext.Provider value={{ createRoom }}>
           <LoginContext.Provider value={{ user }}>
             <CreateRoomPage />
           </LoginContext.Provider>
         </ApiContext.Provider>
-        </MemoryRouter>
-      );
-  
-      expect(component).toMatchSnapshot();
-    });
+      </MemoryRouter>,
+    );
+
+    expect(component).toMatchSnapshot();
+  });
 });

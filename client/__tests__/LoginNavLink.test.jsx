@@ -15,7 +15,7 @@ describe("LoginNavLink", () => {
           <LoginContext.Provider value={{ user }}>
             <LoginNavLink />
           </LoginContext.Provider>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -30,7 +30,7 @@ describe("LoginNavLink", () => {
           <LoginContext.Provider value={{ user: null }}>
             <LoginNavLink />
           </LoginContext.Provider>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 

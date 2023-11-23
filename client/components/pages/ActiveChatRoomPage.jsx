@@ -50,30 +50,30 @@ export function ActiveChatRoomPage() {
         setIsLoading(false);
       });
 
-      async function fetchUserData(userEmail) {
-        try {
-          const userData = await fetchJSON(`/api/login/user/${userEmail}`);
-          return userData;
-        } catch (error) {
-          throw new Error(`Failed to fetch user data: ${error.message}`);
-        }
+    async function fetchUserData(userEmail) {
+      try {
+        const userData = await fetchJSON(`/api/login/user/${userEmail}`);
+        return userData;
+      } catch (error) {
+        throw new Error(`Failed to fetch user data: ${error.message}`);
       }
-      
-      if (user && user.email) {
-        fetchUserData(user.email)
-          .then((data) => {
-            console.log(data);
-            setCustomName(data.customName);
-            setIsLoading(false);
-          })
-          .catch((error) => {
-            setError(error.message);
-            setIsLoading(false);
-          });
-      } else {
-        setIsLoading(false);
-        setError("User email is undefined.");
-      }
+    }
+
+    if (user && user.email) {
+      fetchUserData(user.email)
+        .then((data) => {
+          console.log(data);
+          setCustomName(data.customName);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          setError(error.message);
+          setIsLoading(false);
+        });
+    } else {
+      setIsLoading(false);
+      setError("User email is undefined.");
+    }
 
     const webSocket = new WebSocket(
       window.location.origin.replace(/^http/, "ws"),

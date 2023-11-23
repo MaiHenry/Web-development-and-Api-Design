@@ -15,7 +15,7 @@ describe("LoginFooter", () => {
           <LoginContext.Provider value={{ user, profileName: "Ola" }}>
             <LoginFooter />
           </LoginContext.Provider>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -30,7 +30,7 @@ describe("LoginFooter", () => {
           <LoginContext.Provider value={{ user: null }}>
             <LoginFooter />
           </LoginContext.Provider>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 

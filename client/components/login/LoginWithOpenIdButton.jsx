@@ -57,20 +57,14 @@ export function LoginWithOpenIdButton() {
     <div>
       <div>
         <a href={googleAuthUrl}>
-          <button
-            alt="Google login"
-            style={{ width: "200px" }}
-          >
+          <button alt="Google login" style={{ width: "200px" }}>
             Google Login
           </button>
         </a>
       </div>
       <div>
         <a href={microsoftAuthUrl}>
-          <button
-            alt="Microsoft login"
-            style={{ width: "200px" }}
-          >
+          <button alt="Microsoft login" style={{ width: "200px" }}>
             Microsoft Login
           </button>
         </a>

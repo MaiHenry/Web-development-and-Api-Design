@@ -20,7 +20,7 @@ describe("ProfilePage", () => {
         <LoginContext.Provider value={mockContext}>
           <ProfilePage />
         </LoginContext.Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -49,7 +49,7 @@ describe("ProfilePage", () => {
         <LoginContext.Provider value={mockContext}>
           <ProfilePage />
         </LoginContext.Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(component.toJSON()).toMatchSnapshot();

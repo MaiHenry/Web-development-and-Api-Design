@@ -58,7 +58,9 @@ export function CreateRoomPage() {
         />
       </div>
       <div className="line"></div>
-      <button type="submit" id="roomButton">Create Room</button>
+      <button type="submit" id="roomButton">
+        Create Room
+      </button>
       {successMessage && <div>{successMessage}</div>}
       {errorMessage && <div>{errorMessage}</div>}
     </form>

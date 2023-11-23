@@ -17,7 +17,7 @@ describe("ApiContext", () => {
     const component = renderer.create(
       <ApiContext.Provider value={{ fetchChatRooms: mockingFetchChatRooms }}>
         <TestingComponent />
-      </ApiContext.Provider>
+      </ApiContext.Provider>,
     );
 
     expect(component.toJSON()).toMatchSnapshot();
