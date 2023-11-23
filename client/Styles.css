@@ -63,6 +63,10 @@ footer {
 nav {
   margin-top: 10px;
   margin-bottom: 20px;
+  top: 0;
+  width: 150%; 
+  z-index: 1000;
+  margin-top: 0;
 }
 
 .navbar-link {
@@ -147,6 +151,20 @@ img {
 
 .timestamp {
   font-size: 12px;
+}
+
+.messages-container {
+  max-height: 50vh; 
+  overflow-y: auto; 
+}
+
+.message-bar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 79%;
+}
+.message-button {
+  width: 79%;
 }
 
 .message-card {

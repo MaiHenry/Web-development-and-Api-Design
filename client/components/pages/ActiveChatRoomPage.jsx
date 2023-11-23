@@ -124,7 +124,7 @@ export function ActiveChatRoomPage() {
     <div>
       <h2>{roomDetails.name}</h2>
       <p>{roomDetails.description}</p>
-
+      <div className="line"></div>
       <div className="messages-container">
         {messages.map((message) => (
           <MessageCard key={message._id} message={message} />
@@ -134,11 +134,12 @@ export function ActiveChatRoomPage() {
       <div className="message-input">
         <form class="object-form" onSubmit={(e) => e.preventDefault()}>
           <input
+          className="message-bar"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Write a message..."
-          />
-          <button type="submit" onClick={handleSendMessage}>
+          /><br></br>
+          <button type="submit" className="message-button" onClick={handleSendMessage}>
             Send
           </button>
         </form>
