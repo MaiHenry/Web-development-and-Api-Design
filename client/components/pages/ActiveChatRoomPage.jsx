@@ -134,12 +134,17 @@ export function ActiveChatRoomPage() {
       <div className="message-input">
         <form class="object-form" onSubmit={(e) => e.preventDefault()}>
           <input
-          className="message-bar"
+            className="message-bar"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Write a message..."
-          /><br></br>
-          <button type="submit" className="message-button" onClick={handleSendMessage}>
+          />
+          <br></br>
+          <button
+            type="submit"
+            className="message-button"
+            onClick={handleSendMessage}
+          >
             Send
           </button>
         </form>
