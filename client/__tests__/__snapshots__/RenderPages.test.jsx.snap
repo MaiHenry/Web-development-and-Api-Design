@@ -135,12 +135,6 @@ exports[`render AboutPage 1`] = `
 </div>
 `;
 
-exports[`render ChatRoomPage 1`] = `
-<div>
-  Loading ...
-</div>
-`;
-
 exports[`render CreateRoomPage 1`] = `
 <form
   className="object-form"
