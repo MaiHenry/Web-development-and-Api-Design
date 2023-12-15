@@ -20,6 +20,7 @@ export function CreateRoomPage() {
     const roomData = {
       name,
       description,
+      userEmail: user?.email,
       userId: user && user._id, // Room connected to logged in user.
     };
 

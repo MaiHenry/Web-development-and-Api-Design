@@ -22,7 +22,7 @@ describe("LoginNavLink", () => {
     expect(component).toMatchSnapshot();
   });
 
-  it(" no render when not logged in", () => {
+  it("no render when not logged in", () => {
     let component;
     act(() => {
       component = renderer.create(

@@ -5,7 +5,7 @@ const TestingComponent = () => {
   const { fetchChatRooms } = useContext(ApiContext);
   return (
     <div>
-      <button onClick={fetchChatRooms}>Fetch some nice Rooms</button>
+      <button onClick={fetchChatRooms}>Fetch Rooms</button>
     </div>
   );
 };

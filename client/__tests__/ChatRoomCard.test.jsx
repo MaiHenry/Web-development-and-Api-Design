@@ -5,9 +5,9 @@ import { ChatRoomCard } from "../components/pages/ChatRoomPage";
 it("matches snapshot", () => {
   const room = {
     _id: "123456789",
-    name: "Test chatRoom",
-    description: "Test this",
-    userEmail: "bola@ola.com",
+    name: "Test room name",
+    description: "Test description",
+    userEmail: "user@email.com",
   };
 
   const component = renderer.create(<ChatRoomCard room={room} />);

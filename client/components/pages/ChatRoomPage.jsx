@@ -5,7 +5,7 @@ import { LoginContext } from "../../LoginContext";
 
 export function ChatRoomCard({ room, onDelete, onEdit, onEnterRoom }) {
   const { user } = useContext(LoginContext);
-
+  
   let roomSettings = null;
   if (user && user.email === room.userEmail) {
     roomSettings = (
@@ -14,7 +14,7 @@ export function ChatRoomCard({ room, onDelete, onEdit, onEnterRoom }) {
         <button onClick={() => onDelete(room._id)}>Delete</button>
       </>
     );
-  }
+ }
 
   return (
     <div>

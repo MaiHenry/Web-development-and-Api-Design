@@ -1,9 +1,7 @@
 import { Router } from "express";
-import { ObjectId } from "mongodb";
 
 export function MessagesApi(db) {
   const router = new Router();
-  const collection = db.collection("chatrooms");
 
   // Active Chat Room Stuff
   const messagesCollection = db.collection("messages");

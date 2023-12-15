@@ -7,7 +7,7 @@ import { MemoryRouter } from "react-router-dom";
 describe("ProfilePage", () => {
   it("renders with mock context", () => {
     const mockContext = {
-      user: { email: "user@Nordmannen.com", picture: null },
+      user: { email: "user@nordmannen.com", picture: null },
       profileName: "Ola Nordmann",
       customName: "Test",
       customBio: "A bio",
@@ -36,7 +36,7 @@ describe("ProfilePage", () => {
     global.sessionStorage = sessionStorageMock;
 
     const mockContext = {
-      user: { email: "user@Nordmannen.com", picture: null },
+      user: { email: "user@nordmannen.com", picture: null },
       profileName: "Ola Nordmann",
       customName: "Test",
       customBio: "A bio",
