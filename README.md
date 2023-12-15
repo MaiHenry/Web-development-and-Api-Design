@@ -3,7 +3,7 @@
 
 ## Overview
 
-This repository showcases a web application developed during the Web Development and API Design course at Kristiania University College. This project demonstrate my skills in full-stack development, with a focus on creating scalable, efficient, and secure web solutions. The project features a chat application with user profiles and incorporates a suite of modern technologies including React, Express, MongoDB, Heroku, Jest, and WebSockets, highlighting my capability in both Single-Page Application (SPA) architecture and RESTful API design.
+This repository showcases a web application developed during the Web Development and API Design course at Kristiania University College. The project demonstrates my skills in full-stack development, with a focus on creating scalable, efficient, and secure web solutions. The project features a chat application with user profiles and incorporates a suite of modern technologies including React, Express, MongoDB, Heroku, Jest, and WebSockets, highlighting my capability in both Single-Page Application (SPA) architecture and RESTful API design.
 
 ## Features
 
@@ -14,6 +14,10 @@ This repository showcases a web application developed during the Web Development
 - SPA built with React, utilizing React Router for navigation
 - RESTful API with Express for data operations with robust error handling
 - Full deployment on Heroku with continuous integration and delivery pipelines
+<hr>
+<p align="left">
+ <img  width="500" height="400" src="https://github.com/MaiHenry/Web-development-and-Api-Design/blob/main/chatroom.gif">
+</p>
 
 ## Technical Requirements
 
@@ -48,5 +52,5 @@ Throughout the development of this application, I have deepened my understanding
 ## Contact
 
 Feel free to reach out if you have any questions.
-
+<hr>
 Course description: <a href="https://www.kristiania.no/en/syllabus/school-of-economics-innovation-and-technology/first-cycle-degree/pg6301/web-development-and-api-design/">Visit PG6301 course page</a>
