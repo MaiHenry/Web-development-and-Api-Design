@@ -43,7 +43,7 @@ To run this application locally:
 
 ## Reflection
 
-Throughout the development of this application, I have deepened my understanding of web development practices, especially in the context of SPA and API design. The challenges I faced, particularly in ensuring real-time communication and secure authentication, have strengthened my skills and proficiency in the technologies used.
+Throughout the development of this application, I have deepened my understanding of web development practices, especially in the context of SPA and API design. The challenges I faced, particularly in ensuring real-time communication and secure authentication, have strengthened my skills in the technologies used.
 
 ## Additional Notes
 
