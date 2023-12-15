@@ -53,4 +53,4 @@ Throughout the development of this application, I have deepened my understanding
 
 Feel free to reach out if you have any questions.
 <hr>
-Course link: <a href="https://www.kristiania.no/en/syllabus/school-of-economics-innovation-and-technology/first-cycle-degree/pg6301/web-development-and-api-design/">Visit PG6301 course page</a>
+Course: <a href="https://www.kristiania.no/en/syllabus/school-of-economics-innovation-and-technology/first-cycle-degree/pg6301/web-development-and-api-design/">PG6301 course page</a>
