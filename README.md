@@ -38,6 +38,8 @@ To run this application locally:
 5. Start both the client and server concurrently using `npm run dev`.
 6. Run tests with `npm test` to ensure everything is set up correctly.
 
+To activate the full functionality of the application, add all necessary .env variables.
+
 ## Testing
 
 - Comprehensive tests are written using Jest.
