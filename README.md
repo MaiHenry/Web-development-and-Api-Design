@@ -32,9 +32,11 @@ This repository showcases a web application developed during the Web Development
 To run this application locally:
 
 1. Clone the repository and navigate into the project directory.
-2. Install dependencies for both the client and server with `npm install`.
-3. Start both the client and server concurrently using `npm run dev`.
-4. Run tests with `npm test` to ensure everything is set up correctly.
+2. Create a .env file in the server directory and add a desired port `PORT=3000`
+3. Setup/create a MongoDB collection, copy the URI and add it to the .env as `MONGODB_URI`
+4. Install dependencies for both the client and server with `npm install`.
+5. Start both the client and server concurrently using `npm run dev`.
+6. Run tests with `npm test` to ensure everything is set up correctly.
 
 ## Testing
 
