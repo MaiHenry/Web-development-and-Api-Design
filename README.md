@@ -1,17 +1,52 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/pgC2zHhI)
+# Web Development and API Design Project
+### Exam Score: Grade A (Top 5% of the cohort)
 
-Heroku: https://pg6301-f1fe83ab10e3.herokuapp.com/
+## Overview
 
-Tillegsinfo:
-Selve applikasjonen ble jeg veldig fornøyd med. 
+This repository showcases a web application developed during the Web Development and API Design course at Kristiania University College. This project demonstrate my skills in full-stack development, with a focus on creating scalable, efficient, and secure web solutions. The project features a chat application with user profiles and incorporates a suite of modern technologies including React, Express, MongoDB, Heroku, Jest, and WebSockets, highlighting my capability in both Single-Page Application (SPA) architecture and RESTful API design.
 
-Gjorde mitt beste med å få opp testene så mye som mulig. Fokuserte på å få opp tester for de viktigste delene samt. tester for backend. Har i hovedsak brukt teorien som har blitt lært i timene.
+## Features
 
-For innlogging med OpenID/Entra brukte jeg en kombinasjon av de 2 forelesningene som vi hadde om det i år, samt fjorårets. Her mikset jeg dem logisk sammen slik at det til slutt fungerte for meg.
+- User authentication via OpenID Connect with Google and Microsoft Entra ID
+- Real-time chat functionality using WebSockets
+- Persistence of chat messages in MongoDB
+- User profile creation and viewing with the ability to edit personal details
+- SPA built with React, utilizing React Router for navigation
+- RESTful API with Express for data operations with robust error handling
+- Full deployment on Heroku with continuous integration and delivery pipelines
 
-Nevne-verdige kilder som har aktivt blitt brukt (ikke kopiert):
-https://reactrouter.com/
-https://react.dev/reference
-https://www.w3schools.com/REACT
-https://reactrouter.com/en/main/hooks/use-location (Spesifikt for Protected-Routes)
-Githubrepo tilknyttet emnet fra i år og i fjor.
+## Technical Requirements
+
+- Responsive web design
+- Server-side and client-side error handling with user feedback
+- Automated test suite with coverage of 50-70%
+- Code formatting with Prettier and Husky for linting
+- Consistent use of the HTTP methods GET, POST, and PUT for RESTful services
+
+## Setup Instructions
+
+To run this application locally:
+
+1. Clone the repository and navigate into the project directory.
+2. Install dependencies for both the client and server with `npm install`.
+3. Start both the client and server concurrently using `npm run dev`.
+4. Run tests with `npm test` to ensure everything is set up correctly.
+
+## Testing
+
+- Comprehensive tests are written using Jest.
+- To run the test suite, use the command `npm test` in both the client and server directories.
+
+## Reflection
+
+Throughout the development of this application, I have deepened my understanding of web development practices, especially in the context of SPA and API design. The challenges I faced, particularly in ensuring real-time communication and secure authentication, have strengthened my skills and proficiency in the technologies used.
+
+## Additional Notes
+
+- The project follows the functional requirements as outlined in the exam paper.
+
+## Contact
+
+Feel free to reach out if you have any questions.
+
+Course description: <a href="https://www.kristiania.no/en/syllabus/school-of-economics-innovation-and-technology/first-cycle-degree/pg6301/web-development-and-api-design/">Visit PG6301 course page</a>
