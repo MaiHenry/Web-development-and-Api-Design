@@ -1,4 +1,4 @@
-# Web Development and API Design Project
+# Web Development and API Design
 ### Exam Score: Grade A (Top 5% of the cohort)
 
 ## Overview
