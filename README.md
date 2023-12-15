@@ -58,5 +58,5 @@ Throughout the course and development of this application, I've deepened my unde
 Feel free to reach out if you have any questions.
 <hr>
 Course: <a href="https://www.kristiania.no/en/syllabus/school-of-economics-innovation-and-technology/first-cycle-degree/pg6301/web-development-and-api-design/">PG6301</a>
-<br>
+<br><br>
 <sub>This project is for educational purposes only and should not be copied for academic submissions. Please adhere to your institution's academic integrity policies.</sub>
